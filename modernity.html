@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Політика пам'яті — Василь Стус</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Enhanced responsive styles */
+    body {
+      padding: 2rem 2rem;
+    }
+    
+    .parchment {
+      max-width: 1400px;
+      width: 100%;
+      padding: 3.5rem 4rem;
+    }
+    
+    /* Content wrapper */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    /* Clearfix for floated sections */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with right-floated image */
+    .section-first {
+      margin-bottom: 2rem;
+    }
+    
+    .section-first::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with left-floated image */
+    .section-second {
+      margin-bottom: 2rem;
+    }
+    
+    .section-second::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Photo frame styles */
+    .photo-frame {
+      background: #cab07a;
+      padding: 12px 12px 18px;
+      box-shadow: 0 0 0 2px #4d341a, 0 8px 15px rgba(0,0,0,0.3), inset 0 0 20px #281a0a;
+      transition: transform 0.3s ease;
+    }
+    
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 0 0 2px #4d341a, 0 12px 25px rgba(0,0,0,0.4), inset 0 0 20px #281a0a;
+    }
+    
+    .photo-right {
+      float: right;
+      width: 300px;
+      margin: 0.5rem 0 2rem 2.5rem;
+      transform: rotate(1.3deg);
+    }
+    
+    .photo-left {
+      float: left;
+      width: 280px;
+      margin: 0.5rem 2.5rem 2rem 0;
+      transform: rotate(-1.5deg);
+    }
+    
+    .photo-inner {
+      width: 100%;
+      background: #5e4e2e;
+      border: 1px solid #3d2a15;
+      padding-bottom: 10px;
+      text-align: center;
+      color: #d4c4a2;
+    }
+    
+    .photo-inner img {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      border: none;
+      box-shadow: none;
+      margin: 0;
+    }
+    
+    .photo-caption-main {
+      border-top: 1px solid #aa8e5e;
+      margin: 0 10px;
+      padding-top: 0.8rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .photo-caption-sub {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #2c1c0c;
+      border-top: 1px dashed #6b4e24;
+      padding-top: 8px;
+      line-height: 1.5;
+    }
+    
+    /* Text paragraphs */
+    .parchment p {
+      font-size: 1.4rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Navigation buttons */
+    .nav-button {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background: #5c431f;
+      color: #efe6c9;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border: 2px solid #8b6f42;
+      box-shadow: 3px 3px 0 #2d1d0c, inset 1px 1px 0 #b89e6a;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    
+    .nav-button:hover {
+      background: #6b4e24;
+      box-shadow: 4px 4px 0 #2d1d0c, inset 1px 1px 0 #c9a86c;
+      transform: translate(-1px, -1px);
+    }
+    
+    /* Book cover styling */
+    .book-cover {
+      float: right;
+      width: 300px;
+      margin: 0.5rem 0 2rem 2.5rem;
+      background: #cab07a;
+      padding: 12px 12px 18px;
+      box-shadow: 0 0 0 2px #4d341a, 0 8px 20px rgba(0,0,0,0.3), inset 0 0 20px #281a0a;
+      transform: rotate(1.3deg);
+      transition: transform 0.3s ease;
+    }
+    
+    .book-cover:hover {
+      transform: rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 0 0 2px #4d341a, 0 12px 30px rgba(0,0,0,0.4), inset 0 0 20px #281a0a;
+    }
+    
+    .book-cover-inner {
+      width: 100%;
+      background: linear-gradient(145deg, #5a3a1a 0%, #3a2010 50%, #2a1508 100%);
+      border: 1px solid #3d2a15;
+      box-shadow: inset 0 0 30px #1a1005;
+      padding: 1.5rem 1rem;
+      color: #d4c4a2;
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      position: relative;
+    }
+    
+    .book-cover-inner::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      border: 2px solid #8b6f42;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    
+    .book-cover-inner img {
+      width: 100%;
+      display: block;
+      margin: 0 auto 1rem;
+      border: none;
+      box-shadow: none;
+      filter: none;
+    }
+    
+    .book-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #e8d0b0;
+      text-shadow: 2px 2px 0 #1a0a05;
+    }
+    
+    .book-author {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      border-top: 1px solid #aa8e5e;
+      padding-top: 0.5rem;
+    }
+    
+    .book-year {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #c8a878;
+      margin-top: 0.5rem;
+    }
+    
+    .book-caption {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #2c1c0c;
+      border-top: 1px dashed #6b4e24;
+      padding-top: 8px;
+      line-height: 1.5;
+    }
+    
+    /* Modernity intro box */
+    .modernity-intro {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: rgba(180, 150, 100, 0.08);
+      border: 2px solid #7a5c33;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    
+    /* Court decision box */
+    .court-decision-box {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      background: rgba(200, 170, 120, 0.1);
+      border: 3px solid #6b4e24;
+      box-shadow: inset 0 0 30px rgba(60, 40, 15, 0.15), 5px 5px 0 #3d2a12;
+    }
+    
+    .court-decision-box h3 {
+      margin-top: 0;
+      text-align: center;
+      color: #2a1708;
+      font-size: 2rem;
+    }
+    
+    .decision-item {
+      display: flex;
+      margin: 1.5rem 0;
+      padding: 0.8rem;
+      border-bottom: 1px dashed #8b6f42;
+      font-size: 1.25rem;
+    }
+    
+    .decision-icon {
+      font-size: 1.8rem;
+      margin-right: 1.5rem;
+      min-width: 50px;
+      text-align: center;
+    }
+    
+    /* Quote box */
+    .quote-box-modern {
+      margin: 2.5rem 2rem;
+      padding: 2rem 2.5rem;
+      background: rgba(210, 180, 120, 0.12);
+      border-left: 8px solid #6b4e24;
+      border-right: 2px solid #8b6f42;
+      box-shadow: inset 0 0 20px rgba(80, 50, 20, 0.08);
+      position: relative;
+    }
+    
+    .quote-box-modern p {
+      margin: 0;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+    
+    .quote-box-modern ul {
+      margin: 1rem 0 0 2rem;
+      font-size: 1.2rem;
+    }
+    
+    .quote-box-modern li {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Streisand Effect box */
+    .streisand-effect {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(145deg, rgba(180, 140, 80, 0.15), rgba(140, 100, 50, 0.1));
+      border: 2px solid #7a5c33;
+      text-align: center;
+    }
+    
+    .streisand-effect h4 {
+      margin-top: 0;
+      font-size: 2rem;
+      color: #3d2a12;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(245, 235, 200, 0.3);
+      border: 1px solid #8b6f42;
+      box-shadow: inset 0 0 15px #b89e6a;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #3d2a12;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #5c431f;
+    }
+    
+    /* Archive link */
+    .archive-link {
+      display: inline-block;
+      margin: 1.5rem 0;
+      padding: 1rem 2.5rem;
+      background: #5c431f;
+      color: #efe6c9 !important;
+      text-decoration: none;
+      border: 2px solid #8b6f42;
+      box-shadow: 3px 3px 0 #2d1d0c;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 1.2rem;
+      transition: all 0.15s ease;
+    }
+    
+    .archive-link:hover {
+      background: #6b4e24;
+      box-shadow: 4px 4px 0 #2d1d0c;
+      transform: translate(-1px, -1px);
+    }
+    
+    /* Timeline */
+    .timeline-modern {
+      margin: 2.5rem 0;
+      position: relative;
+      padding-left: 3rem;
+    }
+    
+    .timeline-modern::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #6b4e24;
+    }
+    
+    .timeline-item-modern {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 2rem;
+    }
+    
+    .timeline-item-modern::before {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      background: #5c431f;
+      border: 2px solid #b89e6a;
+      border-radius: 50%;
+    }
+    
+    .timeline-date-modern {
+      font-weight: 700;
+      color: #3d2a12;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .timeline-item-modern p {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    /* Key lesson box */
+    .key-lesson-box {
+      margin: 3rem 0 2rem;
+      padding: 2rem;
+      background: rgba(107, 78, 36, 0.1);
+      border: 3px double #6b4e24;
+      text-align: center;
+    }
+    
+    .key-lesson-box p {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      font-style: italic;
+    }
+    
+    /* Inline quote */
+    .inline-quote {
+      font-style: italic;
+      quotes: "«" "»" "„" "“";
+      padding: 0 0.2rem;
+    }
+    
+    .inline-quote::before {
+      content: "«";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    .inline-quote::after {
+      content: "»";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      border-top: 1px solid #8b6f42;
+      font-size: 1rem;
+      color: #4a3118;
+      font-style: italic;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .parchment {
+        padding: 2rem 2rem;
+      }
+      
+      .book-cover,
+      .photo-left {
+        float: none;
+        width: 100%;
+        max-width: 350px;
+        margin: 2rem auto;
+        display: block;
+      }
+      
+      .parchment p {
+        font-size: 1.2rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .quote-box-modern {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+      
+      .court-decision-box {
+        padding: 1.5rem;
+      }
+    }
+    
+    @media (min-width: 1600px) {
+      .parchment {
+        max-width: 1600px;
+        padding: 4rem 5rem;
+      }
+      
+      .book-cover {
+        width: 350px;
+      }
+      
+      .photo-left {
+        width: 320px;
+      }
+      
+      .parchment p {
+        font-size: 1.5rem;
+      }
+      
+      .quote-box-modern p {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parchment">
+    
+    <!-- Top Navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="court.html" class="nav-button">← Судовий процес</a>
+      <a href="conclusions.html" class="nav-button">Висновки →</a>
+    </div>
+    
+    <!-- Chapter heading -->
+    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Розділ 6</h1>
+    <h2 style="margin-top: 0; border-bottom: 3px double #5c431f; text-align: center; padding-bottom: 1rem; font-size: 2rem;">
+      6. Політика пам'яті: Сучасний вимір справи та поразка цензури
+    </h2>
+    
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      
+      <!-- First section with right-aligned book cover -->
+      <div class="section-first clearfix">
+        
+        <!-- Book Cover (Right) -->
+        <div class="book-cover">
+          <div class="book-cover-inner">
+            <img src="vakhtang.jpg" alt="Обкладинка книги Справа Василя Стуса">
+            <div class="book-title">СПРАВА ВАСИЛЯ СТУСА</div>
+            <div class="book-author">Вахтанг Кіпіані</div>
+            <div class="book-year">2019</div>
+          </div>
+          <div class="book-caption">
+            Видавництво Vivat. Збірка документів з архіву КДБ УРСР
+          </div>
+        </div>
+        
+        <!-- Text content -->
+        <p style="margin-top: 0;">Історичні процеси не закінчуються з винесенням вироків чи смертю їхніх фігурантів. Справа Василя Стуса отримала потужне продовження в умовах незалежної України, ставши своєрідним тестом для суспільства на здатність захищати власну історичну пам'ять від спроб ревізіонізму з боку колишніх функціонерів радянської системи.</p>
+        
+        <p>У 2019 році український журналіст та історик Вахтанг Кіпіані видав фундаментальну працю <span class="inline-quote">Справа Василя Стуса</span>. Ця книга на 90 відсотків складалася з архівних документів колишнього КДБ УРСР, які стали доступними завдяки законам про декомунізацію. У книзі були опубліковані протоколи допитів, ухвали суду, покази свідків та ордери, що крок за кроком відтворювали механізм розправи над поетом. Документи беззаперечно підтверджували політично вмотивований характер справи та висвітлювали колаборантську роль адвоката Віктора Медведчука.</p>
+        
+        <p>Реакція Медведчука, який на той момент обіймав посаду народного депутата і був одним із лідерів проросійських політичних сил в Україні, була миттєвою і симптоматичною. Розуміючи, що документальна правда руйнує його політичний капітал, він подав позов до суду проти Вахтанга Кіпіані та видавництва Vivat. Вимоги позивача зводилися до заборони розповсюдження тиражу книги та вилучення з тексту дев'яти фрагментів, які нібито шкодили його честі, гідності та діловій репутації.</p>
+        
+      </div>
+      
+      <!-- Court decision box -->
+      <div class="court-decision-box">
+        <h3>Рішення Дарницького районного суду м. Києва</h3>
+        <p style="text-align: center; margin-bottom: 2rem; font-size: 1.4rem;"><strong>19 жовтня 2020 року</strong></p>
+        
+        <div class="decision-item">
+          <div class="decision-icon">⚖️</div>
+          <div>Часткове задоволення позову Медведчука</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-icon">🚫</div>
+          <div>Заборона розповсюдження надрукованого тиражу до усунення "порушень"</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-icon">📝</div>
+          <div>Визнання неправомірними шести з дев'яти оскаржуваних фраз</div>
+        </div>
+      </div>
+      
+      <!-- Quoted phrases to be removed -->
+      <div class="quote-box-modern">
+        <p style="margin-bottom: 1.5rem;"><strong>Фрази, які суд постановив вилучити як "недостовірні":</strong></p>
+        <ul style="margin-bottom: 0;">
+          <li>...що наданого і підтримуваного держбезпекою адвоката звали Медведчук</li>
+          <li>...що він на суді визнав злочини підзахисного такими, що заслуговують на покарання</li>
+          <li>...що він фактично підтримав звинувачення, виконуючи роль другого прокурора</li>
+          <li>...оціночні судження: "шістка комуністичної системи"</li>
+          <li>...адвокат, який "розпинав поета"</li>
+          <li>...звинувачення у моральному злочині щодо неінформування родини</li>
+        </ul>
+      </div>
+      
+      <!-- Second section with left-aligned photo (Candlelight Protest) -->
+      <div class="section-second clearfix">
+        
+        <!-- Photo: Candlelight Reading (Left) -->
+        <div class="photo-frame photo-left">
+          <div class="photo-inner">
+            <img src="chytannya.jpg" alt="Акція Читання при свічках на захист книги про Стуса">
+            <div class="photo-caption-main">
+              Акція пам'яті<br>
+              <span style="font-size: 0.75rem;">"Читання при свічках"</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Київ, жовтень 2020. Протест проти судової заборони книги
+          </div>
+        </div>
+        
+        <p>Однак ця спроба судової цензури обернулася для Медведчука нищівною ідеологічною та медійною поразкою, запустивши класичний ефект Стрейзанд. Суспільна реакція була безпрецедентною. За лічені години після оголошення рішення суду українці розкупили всі наявні залишки тиражу книги. Видавництво заявило про друк нових накладів, загальна кількість яких згодом наблизилася до 100 тисяч примірників. По всій країні прокотилася хвиля протестів; у Києві відбулися акції <span class="inline-quote">Справа Стуса. Читання при свічках</span> та <span class="inline-quote">Захистимо Стуса! Медведчука — під трибунал!</span>.</p>
+        
+      </div>
+      
+      <!-- Streisand Effect box -->
+      <div class="streisand-effect">
+        <h4>ЕФЕКТ СТРЕЙЗАНД</h4>
+        <p style="font-style: italic; margin-bottom: 2rem; font-size: 1.3rem;">Спроба приховати інформацію призводить до її ще більшого поширення</p>
+        
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">~100 000</div>
+            <div class="stat-label">Примірників продано</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24 год</div>
+            <div class="stat-label">Розпродано весь тираж</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Вільний доступ онлайн</div>
+          </div>
+        </div>
+      </div>
+      
+      <p>Реагуючи на спробу приховати правду, Центр досліджень визвольного руху спільно з Архівом Служби безпеки України негайно виклали у вільний доступ онлайн-колекцію оригінальних документів зі справи Стуса. Кожен громадянин отримав змогу особисто ознайомитися з анкетами, протоколами допитів, зразками почерку, ордером на призначення Медведчука та вироком суду.</p>
+      
+      <div style="text-align: center; margin: 2.5rem 0;">
+        <a href="#" class="archive-link">📜 Архів справи №5 онлайн</a>
+      </div>
+      
+      <!-- Timeline of events -->
+      <h3 style="margin-top: 3rem; font-size: 2rem;">Хронологія сучасного виміру справи</h3>
+      
+      <div class="timeline-modern">
+        <div class="timeline-item-modern">
+          <div class="timeline-date-modern">2019</div>
+          <p>Вихід книги Вахтанга Кіпіані "Справа Василя Стуса"</p>
+        </div>
+        <div class="timeline-item-modern">
+          <div class="timeline-date-modern">19 жовтня 2020</div>
+          <p>Дарницький суд частково задовольняє позов Медведчука</p>
+        </div>
+        <div class="timeline-item-modern">
+          <div class="timeline-date-modern">Жовтень 2020</div>
+          <p>Масові протести. Книгу розкуповують за лічені години</p>
+        </div>
+        <div class="timeline-item-modern">
+          <div class="timeline-date-modern">Жовтень 2020</div>
+          <p>Архів СБУ викладає документи справи у вільний доступ</p>
+        </div>
+        <div class="timeline-item-modern">
+          <div class="timeline-date-modern">2021</div>
+          <p>Апеляційний суд скасовує рішення першої інстанції</p>
+        </div>
+      </div>
+      
+      <!-- Final quote -->
+      <div class="quote-box-modern" style="margin-top: 2.5rem;">
+        <p>"Єдина людина, чия честь і гідність були порушені у цій справі — це сам Василь Стус."</p>
+        <div style="text-align: right; margin-top: 1.2rem; font-style: normal; font-size: 1.2rem;">— Координатори архіву Центру досліджень визвольного руху</div>
+      </div>
+      
+      <p>Зрештою, апеляційний суд скасував ганебне рішення суду першої інстанції, дозволивши вільне поширення книги. Цей епізод довів, що українська нація сформувала потужні механізми захисту своєї історичної пам'яті і більше не дозволить імперським агентам диктувати умови сприйняття власного минулого.</p>
+      
+      <!-- Key lesson box -->
+      <div class="key-lesson-box">
+        <p><strong>Головний урок:</strong> Пам'ять про Василя Стуса є тим фундаментом, на якому тримається наша сьогоднішня здатність чинити опір імперії.</p>
+      </div>
+      
+    </div>
+    
+    <hr>
+    
+    <!-- Bottom navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="court.html" class="nav-button">← Анатомія розправи</a>
+      <a href="conclusions.html" class="nav-button">Висновки →</a>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <span>Протистояння волі та імперії</span>
+      <span>— Сторінка 6 —</span>
+      <span>Політика пам'яті</span>
+    </div>
+    
+  </div>
+</body>
+</html>

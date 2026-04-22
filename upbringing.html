@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генеза незламності — Василь Стус</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Enhanced responsive styles */
+    body {
+      padding: 2rem 2rem;
+    }
+    
+    .parchment {
+      max-width: 1400px;
+      width: 100%;
+      padding: 3.5rem 4rem;
+    }
+    
+    /* Content grid for better photo-text layout */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    /* Clearfix for floated sections */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with left-floated image */
+    .section-first {
+      margin-bottom: 2rem;
+    }
+    
+    .section-first::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with right-floated image */
+    .section-second {
+      margin-bottom: 2rem;
+    }
+    
+    .section-second::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Photo frame styles - preserved angles with better spacing */
+    .photo-frame {
+      background: #cab07a;
+      padding: 12px 12px 18px;
+      box-shadow: 0 0 0 2px #4d341a, 0 8px 15px rgba(0,0,0,0.3), inset 0 0 20px #281a0a;
+      transition: transform 0.3s ease;
+    }
+    
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 0 0 2px #4d341a, 0 12px 25px rgba(0,0,0,0.4), inset 0 0 20px #281a0a;
+    }
+    
+    .photo-left {
+      float: left;
+      width: 320px;
+      margin: 0.5rem 2.5rem 2rem 0;
+      transform: rotate(-1.2deg);
+    }
+    
+    .photo-right {
+      float: right;
+      width: 320px;
+      margin: 0.5rem 0 2rem 2.5rem;
+      transform: rotate(1.5deg);
+    }
+    
+    .photo-inner {
+      width: 100%;
+      background: #4a3e28;
+      border: 1px solid #3d2a15;
+      padding-bottom: 10px;
+      text-align: center;
+      color: #d4c4a2;
+    }
+    
+    .photo-inner img {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      border: none;
+      box-shadow: none;
+      margin: 0;
+    }
+    
+    .photo-caption-main {
+      border-top: 1px solid #aa8e5e;
+      margin: 0 10px;
+      padding-top: 0.8rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .photo-caption-sub {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #2c1c0c;
+      border-top: 1px dashed #6b4e24;
+      padding-top: 8px;
+      line-height: 1.5;
+    }
+    
+    /* Text paragraphs */
+    .parchment p {
+      font-size: 1.4rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Dark parchment section */
+    .parchment-dark {
+      max-width: 1400px;
+      width: 100%;
+      margin: 2.5rem auto 0;
+      background: linear-gradient(
+        145deg,
+        #4a2e14 0%,
+        #3d2510 25%,
+        #2c1a08 50%,
+        #3a220e 75%,
+        #4e3016 100%
+      );
+      padding: 3.5rem 4rem;
+      box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.7),
+        0 0 0 1px #6b3a1a inset,
+        0 0 30px #1a0500 inset,
+        0 0 0 12px #1f1005;
+      border-radius: 2px 40px 2px 30px;
+      position: relative;
+      border-left: 6px solid #6b2a1a;
+      border-right: 2px solid #8b3a1a;
+      color: #d4c4a2;
+      overflow: hidden;
+    }
+    
+    .parchment-dark::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(180, 30, 30, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 45%, rgba(120, 20, 20, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(200, 40, 40, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 70% 15%, rgba(150, 25, 25, 0.18) 0%, transparent 35%),
+        radial-gradient(circle at 25% 65%, rgba(100, 10, 10, 0.25) 0%, transparent 40%);
+      border-radius: inherit;
+    }
+    
+    /* Blood splatter effects */
+    .blood-splatter {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .blood-splatter-1 {
+      top: 5%;
+      right: 3%;
+      width: 150px;
+      height: 100px;
+      background: radial-gradient(ellipse at 30% 40%, rgba(150, 20, 20, 0.4) 0%, rgba(120, 10, 10, 0.2) 40%, transparent 70%);
+      filter: blur(3px);
+      transform: rotate(-15deg);
+      border-radius: 50%;
+    }
+    
+    .blood-splatter-2 {
+      bottom: 15%;
+      left: 2%;
+      width: 200px;
+      height: 80px;
+      background: radial-gradient(ellipse at 60% 50%, rgba(180, 15, 15, 0.35) 0%, rgba(140, 20, 20, 0.15) 50%, transparent 80%);
+      filter: blur(4px);
+      transform: rotate(25deg);
+      border-radius: 40% 60% 30% 70%;
+    }
+    
+    .blood-splatter-3 {
+      top: 40%;
+      left: 80%;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at 40% 40%, rgba(200, 30, 30, 0.3) 0%, rgba(160, 15, 15, 0.1) 50%, transparent 80%);
+      filter: blur(5px);
+      border-radius: 50%;
+    }
+    
+    .blood-drip {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .blood-drip-1 {
+      top: 12%;
+      left: 5%;
+      width: 5px;
+      height: 70px;
+      background: linear-gradient(to bottom, rgba(160, 15, 15, 0.6), rgba(120, 10, 10, 0.2));
+      filter: blur(1px);
+      transform: rotate(5deg);
+      border-radius: 0 0 50% 50%;
+    }
+    
+    .blood-drip-2 {
+      bottom: 8%;
+      right: 8%;
+      width: 4px;
+      height: 55px;
+      background: linear-gradient(to bottom, rgba(140, 10, 10, 0.5), transparent);
+      filter: blur(1.5px);
+      transform: rotate(-8deg);
+    }
+    
+    .blood-drip-3 {
+      top: 25%;
+      right: 12%;
+      width: 6px;
+      height: 45px;
+      background: linear-gradient(to bottom, rgba(170, 20, 20, 0.45), transparent);
+      filter: blur(1px);
+      transform: rotate(12deg);
+    }
+    
+    /* Torn paper edges for dark section */
+    .torn-edge-top {
+      position: absolute;
+      top: -5px;
+      left: 0;
+      right: 0;
+      height: 15px;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 15px,
+        rgba(30, 10, 5, 0.8) 15px,
+        rgba(30, 10, 5, 0.8) 25px,
+        transparent 25px,
+        transparent 35px,
+        rgba(40, 15, 5, 0.6) 35px,
+        rgba(40, 15, 5, 0.6) 42px,
+        transparent 42px
+      );
+      filter: blur(0.8px);
+      z-index: 2;
+    }
+    
+    .torn-edge-bottom {
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 18px;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 20px,
+        rgba(35, 12, 5, 0.7) 20px,
+        rgba(35, 12, 5, 0.7) 30px,
+        transparent 30px,
+        transparent 45px,
+        rgba(45, 15, 8, 0.5) 45px,
+        rgba(45, 15, 8, 0.5) 55px,
+        transparent 55px
+      );
+      filter: blur(1px);
+      z-index: 2;
+    }
+    
+    /* Dark section typography */
+    .parchment-dark h1,
+    .parchment-dark h2,
+    .parchment-dark h3,
+    .parchment-dark h4 {
+      color: #e8d5b0 !important;
+      text-shadow: 2px 2px 0 #4a1a0a, 3px 3px 6px rgba(0,0,0,0.5) !important;
+      border-bottom-color: #8b3a1a !important;
+    }
+    
+    .parchment-dark p {
+      color: #d4c4a2 !important;
+      text-shadow: 1px 1px 2px #1a0500 !important;
+      font-size: 1.4rem;
+      line-height: 1.7;
+    }
+    
+    .parchment-dark table {
+      background: rgba(80, 25, 10, 0.25);
+      box-shadow: inset 0 0 20px #2a0a05;
+      border-color: #7a2a15;
+      font-size: 1.2rem;
+    }
+    
+    .parchment-dark th {
+      background: #5c1a0a;
+      color: #f0e0c0;
+      border-bottom-color: #3a1005;
+      font-size: 1.1rem;
+      padding: 1rem;
+    }
+    
+    .parchment-dark td {
+      background: rgba(60, 20, 10, 0.5);
+      color: #e8d5b0;
+      padding: 1rem;
+    }
+    
+    /* Timeline styling */
+    .timeline-container {
+      position: relative;
+      padding: 1.5rem 0 1.5rem 3rem;
+      margin: 2.5rem 0;
+    }
+    
+    .timeline-line {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(
+        to bottom,
+        #8b3a1a,
+        #a04020 20%,
+        #6b2a15 50%,
+        #9a3520 80%,
+        #5c1a0a
+      );
+      box-shadow: 0 0 10px rgba(180, 30, 30, 0.5);
+      border-radius: 2px;
+    }
+    
+    .timeline-event {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 2rem;
+    }
+    
+    .timeline-event::before {
+      content: "";
+      position: absolute;
+      left: -38px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: #8b3a1a;
+      border: 3px solid #d4a080;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px #3a1005, 0 0 15px rgba(200, 40, 40, 0.6);
+      z-index: 3;
+    }
+    
+    .timeline-event:last-child {
+      margin-bottom: 0;
+    }
+    
+    .timeline-date {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #e0c090;
+      text-shadow: 2px 2px 3px #1a0500;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+    
+    .timeline-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #c8a878;
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+    
+    .timeline-desc {
+      color: #c0a878;
+      line-height: 1.6;
+      font-size: 1.15rem;
+    }
+    
+    /* Section divider */
+    .section-divider {
+      margin: 2.5rem 0 1.5rem;
+      position: relative;
+      text-align: center;
+    }
+    
+    .section-divider h2 {
+      display: inline-block;
+      background: #3d2510;
+      padding: 0.8rem 3rem;
+      border: 2px solid #6b2a15;
+      box-shadow: 0 0 20px rgba(150, 20, 20, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 1.8rem;
+    }
+    
+    /* Navigation buttons */
+    .nav-button {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background: #5c431f;
+      color: #efe6c9;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border: 2px solid #8b6f42;
+      box-shadow: 3px 3px 0 #2d1d0c, inset 1px 1px 0 #b89e6a;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    
+    .nav-button:hover {
+      background: #6b4e24;
+      box-shadow: 4px 4px 0 #2d1d0c, inset 1px 1px 0 #c9a86c;
+      transform: translate(-1px, -1px);
+    }
+    
+    .nav-button-dark {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background: #4a2010;
+      color: #e8d5b0;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border: 2px solid #7a2a15;
+      box-shadow: 3px 3px 0 #1a0500, inset 1px 1px 0 #a06040;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    
+    .nav-button-dark:hover {
+      background: #5c1a0a;
+      box-shadow: 4px 4px 0 #1a0500, inset 1px 1px 0 #c07050;
+      transform: translate(-1px, -1px);
+    }
+    
+    /* Inline quote */
+    .inline-quote {
+      font-style: italic;
+      quotes: "«" "»" "„" "“";
+      padding: 0 0.2rem;
+    }
+    
+    .inline-quote::before {
+      content: "«";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    .inline-quote::after {
+      content: "»";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    /* Footer */
+    .footer-light {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      border-top: 1px solid #8b6f42;
+      font-size: 1rem;
+      color: #4a3118;
+      font-style: italic;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .parchment,
+      .parchment-dark {
+        padding: 2rem 2rem;
+      }
+      
+      .photo-left,
+      .photo-right {
+        float: none;
+        width: 100%;
+        max-width: 400px;
+        margin: 2rem auto;
+        display: block;
+      }
+      
+      .parchment p,
+      .parchment-dark p {
+        font-size: 1.2rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      
+      .timeline-container {
+        padding-left: 2rem;
+      }
+      
+      .timeline-date {
+        font-size: 1.4rem;
+      }
+    }
+    
+    @media (min-width: 1600px) {
+      .parchment,
+      .parchment-dark {
+        max-width: 1600px;
+        padding: 4rem 5rem;
+      }
+      
+      .photo-left,
+      .photo-right {
+        width: 380px;
+      }
+      
+      .parchment p,
+      .parchment-dark p {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parchment">
+    
+    <!-- Top Navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="index.html" class="nav-button">← Вступ</a>
+      <a href="stoicism.html" class="nav-button">Філософія стоїцизму →</a>
+    </div>
+    
+    <!-- Chapter heading -->
+    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Розділ 2</h1>
+    <h2 style="margin-top: 0; border-bottom: 3px double #5c431f; text-align: center; padding-bottom: 1rem; font-size: 2rem;">
+      2. Генеза незламності: Від індустріального Донбасу до київського інтелектуального спротиву
+    </h2>
+    
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      
+      <!-- First section with left-aligned photo (Donetsk) -->
+      <div class="section-first clearfix">
+        
+        <!-- Photo: Donetsk Industrial Landscape (Left) -->
+        <div class="photo-frame photo-left">
+          <div class="photo-inner">
+            <img src="donetsk.jpg" alt="Повоєнний Донецьк (Сталіно)">
+            <div class="photo-caption-main">
+              Сталіно (Донецьк)<br>
+              <span style="font-size: 0.8rem;">Індустріальний пейзаж, 1950-ті роки</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Місто, де минуло дитинство та юність поета. Русифікований індустріальний центр
+          </div>
+        </div>
+        
+        <!-- Text content -->
+        <p style="margin-top: 0;">Формування світогляду Василя Стуса відбувалося в умовах інтенсивного тиску русифікаторських процесів, які найгостріше та найбрутальніше виявлялися на індустріальному Сході України. Поет народився 6 січня 1938 року в селі Рахнівка на Вінниччині, у селянській родині. Проте вже в ранньому дитинстві, у 1939-1940 роках, родина була змушена переїхати на Донбас, до міста Сталіно (нині Донецьк), рятуючись від примусової праці в колгоспі та наслідків тоталітарної сільськогосподарської політики.</p>
+        
+        <p>Цей географічний зсув мав колосальне значення для формування його світогляду. Індустріальний Донбас того часу був територією жорсткого соціального та національного експерименту радянської влади. Це був простір, де українська ідентичність зазнавала наймасштабнішої колоніальної асиміляції, переплавляючись у так званий "радянський народ". Стус зростав у середовищі, де його рідна мова і культура щоденно маргіналізувалися, витіснялися на периферію суспільного життя та таврувалися як ознака низького соціального статусу.</p>
+        
+      </div>
+      
+      <!-- Second section with right-aligned photo (KNU) -->
+      <div class="section-second clearfix">
+        
+        <!-- Photo: Kyiv University (Right) -->
+        <div class="photo-frame photo-right">
+          <div class="photo-inner">
+            <img src="knu.jpg" alt="Київський університет імені Шевченка">
+            <div class="photo-caption-main">
+              Інститут літератури АН УРСР<br>
+              <span style="font-size: 0.8rem;">Київ, 1960-ті роки</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Місце навчання в аспірантурі. Відрахований після протесту 1965 року
+          </div>
+        </div>
+        
+        <!-- Text content continues -->
+        <p>Відмінні успіхи в навчанні свідчили про високий інтелектуальний потенціал майбутнього дисидента. У 1954 році він закінчив середню школу зі срібною медаллю. Через неповноліття йому було відмовлено у вступі до Київського університету, тому він вступив до Сталінського педагогічного інституту на історико-філологічний факультет, який закінчив із червоним дипломом. Проте ключовим фактором його внутрішньої кристалізації як борця стала не академічна освіта, а пряме зіткнення з реаліями радянської мовної політики під час професійної діяльності.</p>
+        
+        <p>Працюючи вчителем української мови та літератури в Горлівці після строкової служби в армії на Уралі (1959–1961), Стус на власні очі побачив механізм ліквідації української школи. У своїх листах до Андрія Малишка він здійснював глибокий аналіз цієї ситуації, прямо вказуючи на абсурдність і злочинність системи, за якої викладання української мови перетворювалося на фікцію. Російська шовіністична політика, замаскована під право вибору, дозволяла батькам писати заяви про звільнення їхніх дітей від вивчення української мови. Це була системна стратегія денаціоналізації, і Стус ідентифікував її саме так.</p>
+        
+        <p>Переїзд до Києва у 1963 році та вступ до аспірантури Інституту літератури АН УРСР імені Т. Г. Шевченка збіглися з періодом так званої "хрущовської відлиги". Стус швидко увійшов до середовища активних представників "шістдесятництва", публікував свої твори та критичні нариси в часописах. Проте лібералізація виявилася лише тимчасовим тактичним маневром тоталітарної системи, яка прагнула виявити інакодумців для подальшого їх знешкодження. Коли система розпочала новий виток репресій проти української інтелектуальної еліти, Стус продемонстрував готовність до відкритого конфлікту.</p>
+        
+        <p>Рубіконом його життя став день 4 вересня 1965 року. Під час прем'єри фільму Сергія Параджанова "Тіні забутих предків" у київському кінотеатрі "Україна" відбулася акція протесту проти таємних арештів української інтелігенції. Коли Іван Дзюба повідомив аудиторію про репресії, Василь Стус та В'ячеслав Чорновіл закликали присутніх піднятися зі своїх місць на знак незгоди. Вигук Стуса <span class="inline-quote">Хто проти тиранії – встаньте!</span> став маніфестацією переходу від пасивного незадоволення до активного політичного чину. Це не була спонтанна емоційна реакція; це був акт усвідомленого вибору, заснований на переконанні, що мовчазна згода з терором дорівнює співучасті у злочині.</p>
+        
+        <p>Наслідки цього кроку були миттєвими та невідворотними. Систему не цікавили мотиви Стуса; її завданням було покарання за сам факт суб'єктності.</p>
+        
+      </div>
+      
+    </div>
+    
+    <!-- Divider before dark section -->
+    <div class="section-divider">
+      <h2>⚔ Хронологія ескалації репресій ⚔</h2>
+    </div>
+    
+  </div>
+  
+  <!-- Dark parchment section with chronology -->
+  <div class="parchment-dark">
+    
+    <!-- Blood splatter effects -->
+    <div class="blood-splatter blood-splatter-1"></div>
+    <div class="blood-splatter blood-splatter-2"></div>
+    <div class="blood-splatter blood-splatter-3"></div>
+    <div class="blood-drip blood-drip-1"></div>
+    <div class="blood-drip blood-drip-2"></div>
+    <div class="blood-drip blood-drip-3"></div>
+    
+    <!-- Torn edges -->
+    <div class="torn-edge-top"></div>
+    <div class="torn-edge-bottom"></div>
+    
+    <h3 style="
+      text-align: center; 
+      margin-bottom: 2.5rem; 
+      color: #e8d5b0 !important;
+      text-shadow: 3px 3px 5px #1a0500, 0 0 15px rgba(150, 20, 20, 0.5) !important;
+      font-size: 2.2rem;
+      letter-spacing: 0.1em;
+      border-bottom: 2px solid #7a2a15;
+      padding-bottom: 1.2rem;
+    ">
+      ХРОНІКА РЕПРЕСІЙ ПРОТИ ВАСИЛЯ СТУСА
+    </h3>
+    
+    <!-- Timeline -->
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      <div class="timeline-event">
+        <div class="timeline-date">Вересень 1965</div>
+        <div class="timeline-title">Відкритий протест у кінотеатрі "Україна"</div>
+        <div class="timeline-desc">
+          <strong>Подія:</strong> Відкритий протест проти арештів української інтелігенції.<br>
+          <strong style="color: #d08060;">Наслідки:</strong> Негайне відрахування з аспірантури Інституту літератури. Втрата перспектив академічної кар'єри. Встановлення жорсткого нагляду КДБ.
+        </div>
+      </div>
+      
+      <div class="timeline-event">
+        <div class="timeline-date">1965 – 1971</div>
+        <div class="timeline-title">Робота на різноробочих посадах</div>
+        <div class="timeline-desc">
+          <strong>Подія:</strong> Робота кочегаром, будівельником метро. Неможливість легально публікувати збірки "Круговерть" та "Зимові дерева" в СРСР. Видання збірки "Зимові дерева" у Брюсселі (1970).<br>
+          <strong style="color: #d08060;">Наслідки:</strong> Тотальна заборона на професійну літературну діяльність. Маргіналізація в суспільстві. Зростання уваги органів держбезпеки через публікації на Заході (самвидав і тамвидав).
+        </div>
+      </div>
+      
+      <div class="timeline-event">
+        <div class="timeline-date">Січень 1972</div>
+        <div class="timeline-title">Перший арешт. "Операція Блок"</div>
+        <div class="timeline-desc">
+          <strong>Подія:</strong> Перший арешт під час масової кампанії репресій проти українського дисидентського руху ("Операція Блок").<br>
+          <strong style="color: #d08060;">Наслідки:</strong> Винесення вироку: 5 років таборів суворого режиму та 2 роки заслання. Конфіскація архіву (близько 500 віршів та прозові тексти, написані за 15 років).
+        </div>
+      </div>
+      
+      <div class="timeline-event">
+        <div class="timeline-date">Серпень 1979</div>
+        <div class="timeline-title">Повернення до Києва. Вступ до УГГ</div>
+        <div class="timeline-desc">
+          <strong>Подія:</strong> Повернення до Києва після відбуття першого терміну покарання та заслання. Вступ до Української Гельсінської групи.<br>
+          <strong style="color: #d08060;">Наслідки:</strong> Відмова від компромісу. Перехід до формалізованої правозахисної та політичної боротьби в умовах максимального ризику.
+        </div>
+      </div>
+      
+      <div class="timeline-event">
+        <div class="timeline-date">Травень 1980</div>
+        <div class="timeline-title">Другий арешт</div>
+        <div class="timeline-desc">
+          <strong>Подія:</strong> Другий арешт за звинуваченням в антирадянській агітації та пропаганді.<br>
+          <strong style="color: #d08060;">Наслідки:</strong> Початок нового судового процесу, який призвів до фатального вироку та ув'язнення в таборах особливого режиму.
+        </div>
+      </div>
+    </div>
+    
+    <!-- Blood-stained table -->
+    <table style="margin-top: 3rem; border-color: #6b2a15;">
+      <thead>
+        <tr>
+          <th>Період</th>
+          <th>Подія</th>
+          <th>Інституційні наслідки та репресивні заходи</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Вересень 1965</strong></td>
+          <td>Відкритий протест у кінотеатрі "Україна" проти арештів української інтелігенції.</td>
+          <td>Негайне відрахування з аспірантури. Втрата академічної кар'єри. Нагляд КДБ.</td>
+        </tr>
+        <tr>
+          <td><strong>1965–1971</strong></td>
+          <td>Робота на різноробочих посадах. Видання "Зимових дерев" у Брюсселі (1970).</td>
+          <td>Тотальна заборона на професійну літературну діяльність. Маргіналізація.</td>
+        </tr>
+        <tr>
+          <td><strong>Січень 1972</strong></td>
+          <td>Перший арешт. "Операція Блок".</td>
+          <td>5 років таборів + 2 роки заслання. Конфіскація архіву (~500 творів).</td>
+        </tr>
+        <tr>
+          <td><strong>Серпень 1979</strong></td>
+          <td>Повернення до Києва. Вступ до Української Гельсінської групи.</td>
+          <td>Відмова від компромісу. Перехід до відкритої політичної боротьби.</td>
+        </tr>
+        <tr>
+          <td><strong>Травень 1980</strong></td>
+          <td>Другий арешт за антирадянську агітацію.</td>
+          <td>Новий судовий процес. Вирок: 10 років таборів особливого режиму + 5 років заслання.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p style="margin-top: 2.5rem; font-style: italic; border-left: 4px solid #8b3a1a; padding-left: 2rem; color: #c8a878 !important; font-size: 1.3rem;">
+      Ця хронологія доводить, що шлях Стуса не був ланцюгом трагічних випадковостей. 
+      Це була свідомо обрана траєкторія зіткнення вільної волі індивіда з механістичною 
+      детермінованістю тоталітарного апарату.
+    </p>
+    
+    <!-- Bottom navigation for dark section -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #6b2a15; flex-wrap: wrap; gap: 1rem;">
+      <a href="index.html" class="nav-button-dark">← Повернутися до Вступу</a>
+      <a href="stoicism.html" class="nav-button-dark">Філософія трагічного стоїцизму →</a>
+    </div>
+    
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer-light">
+    <span>Протистояння волі та імперії</span>
+    <span>— Сторінка 2 —</span>
+    <span>Генеза незламності</span>
+  </div>
+  
+</body>
+</html>

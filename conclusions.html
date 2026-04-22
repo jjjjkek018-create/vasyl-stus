@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Висновки — Василь Стус</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Enhanced responsive styles */
+    body {
+      padding: 2rem 2rem;
+    }
+    
+    .parchment {
+      max-width: 1400px;
+      width: 100%;
+      padding: 3.5rem 4rem;
+    }
+    
+    /* Content wrapper */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    /* Text paragraphs */
+    .parchment p {
+      font-size: 1.4rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Navigation buttons */
+    .nav-button {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background: #5c431f;
+      color: #efe6c9;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border: 2px solid #8b6f42;
+      box-shadow: 3px 3px 0 #2d1d0c, inset 1px 1px 0 #b89e6a;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    
+    .nav-button:hover {
+      background: #6b4e24;
+      box-shadow: 4px 4px 0 #2d1d0c, inset 1px 1px 0 #c9a86c;
+      transform: translate(-1px, -1px);
+    }
+    
+    /* Conclusion scheme styling */
+    .conclusion-scheme {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      background: rgba(210, 180, 120, 0.1);
+      border: 4px double #6b4e24;
+      box-shadow: inset 0 0 40px rgba(80, 50, 20, 0.1), 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .scheme-title-main {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #2a1708;
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border-bottom: 3px solid #7a5c33;
+      padding-bottom: 1.2rem;
+    }
+    
+    .scheme-central {
+      text-align: center;
+      margin: 2.5rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(145deg, #5c431f, #3d2a12);
+      color: #f0e6d0;
+      border: 3px solid #c9a86c;
+      box-shadow: 0 0 0 3px #4a3118, inset 0 0 40px #1a1005;
+    }
+    
+    .scheme-central h3 {
+      color: #f0e6d0 !important;
+      font-size: 2.4rem;
+      margin-top: 0;
+      border-bottom: 2px solid #c9a86c;
+      text-shadow: 3px 3px 0 #1a1005 !important;
+    }
+    
+    .scheme-central p {
+      color: #e0d0b0 !important;
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+    
+    .scheme-row {
+      display: grid;
+      grid-template-columns: 1fr 0.1fr 1fr;
+      gap: 1rem;
+      align-items: center;
+      margin: 2rem 0;
+    }
+    
+    .scheme-arrow {
+      text-align: center;
+      font-size: 3rem;
+      color: #5c431f;
+      font-weight: 300;
+    }
+    
+    .scheme-box-conclusion {
+      background: rgba(245, 235, 200, 0.4);
+      border: 2px solid #6b4e24;
+      padding: 1.8rem;
+      box-shadow: inset 0 0 20px #b89e6a, 3px 3px 0 #4a3118;
+    }
+    
+    .scheme-box-conclusion h4 {
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      color: #2a1708;
+      font-size: 1.5rem;
+      border-bottom: 1px dashed #8b6f42;
+      padding-bottom: 0.8rem;
+    }
+    
+    .scheme-box-conclusion p {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+    
+    /* Four pillars grid */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    
+    .pillar-item {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: rgba(180, 150, 90, 0.12);
+      border: 2px solid #7a5c33;
+      box-shadow: inset 0 0 15px rgba(80, 50, 20, 0.08);
+    }
+    
+    .pillar-icon {
+      font-size: 2.8rem;
+      margin-bottom: 0.8rem;
+      color: #5c431f;
+    }
+    
+    .pillar-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+      color: #2a1708;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .pillar-desc {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #3d2a12;
+    }
+    
+    /* Flow diagram */
+    .flow-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 2.5rem 0;
+    }
+    
+    .flow-item {
+      padding: 1.2rem 1.8rem;
+      background: #6b4e24;
+      color: #efe6c9;
+      border: 2px solid #aa8e5e;
+      box-shadow: 3px 3px 0 #2d1d0c;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1rem;
+    }
+    
+    .flow-arrow {
+      font-size: 2.5rem;
+      color: #5c431f;
+    }
+    
+    /* Comparison table */
+    .comparison-scheme-table {
+      width: 100%;
+      margin: 2.5rem 0;
+      font-size: 1.2rem;
+    }
+    
+    .comparison-scheme-table th {
+      background: #5c431f;
+      color: #efe6c9;
+      padding: 1.2rem;
+      font-size: 1.3rem;
+    }
+    
+    .comparison-scheme-table td {
+      padding: 1.2rem;
+    }
+    
+    .comparison-scheme-table tr td:first-child {
+      font-weight: 700;
+      background: rgba(180, 140, 80, 0.15);
+      width: 35%;
+    }
+    
+    /* Legacy box */
+    .legacy-box {
+      margin: 3rem 0 1.5rem;
+      padding: 2.5rem;
+      background: linear-gradient(145deg, rgba(200, 170, 120, 0.15), rgba(160, 130, 80, 0.1));
+      border: 2px solid #8b6f42;
+      border-radius: 2px 30px 2px 30px;
+      position: relative;
+    }
+    
+    .legacy-box::before {
+      content: "❧";
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      color: #6b4e24;
+      background: #efe2b4;
+      padding: 0 20px;
+    }
+    
+    .legacy-box h3 {
+      text-align: center;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: none;
+      font-size: 2rem;
+    }
+    
+    /* Final statement */
+    .final-statement {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      text-align: center;
+      background: rgba(139, 111, 66, 0.08);
+      border-left: 8px solid #6b4e24;
+      border-right: 8px solid #6b4e24;
+    }
+    
+    .final-statement p {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      font-style: italic;
+      margin: 0;
+    }
+    
+    /* Cycle of resistance box */
+    .cycle-box {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: rgba(200, 170, 120, 0.08);
+      border: 2px solid #7a5c33;
+    }
+    
+    .cycle-box h4 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 1.6rem;
+    }
+    
+    .cycle-flow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .cycle-item {
+      padding: 1rem 1.5rem;
+      background: #6b4e24;
+      color: #efe6c9;
+      border: 2px solid #aa8e5e;
+      box-shadow: 2px 2px 0 #2d1d0c;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    .cycle-arrow {
+      font-size: 2rem;
+      color: #5c431f;
+    }
+    
+    .cycle-triumph {
+      padding: 1rem 1.8rem;
+      background: #5c431f;
+      color: #efe6c9;
+      border: 3px solid #c9a86c;
+      box-shadow: 3px 3px 0 #2d1d0c;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    
+    /* Summary table */
+    .summary-table {
+      margin: 2.5rem 0;
+      font-size: 1.2rem;
+    }
+    
+    .summary-table th {
+      font-size: 1.4rem;
+      padding: 1.2rem;
+    }
+    
+    .summary-table td {
+      padding: 1.2rem;
+    }
+    
+    .summary-table td:first-child {
+      font-weight: 700;
+      width: 30%;
+    }
+    
+    /* Inline quote */
+    .inline-quote {
+      font-style: italic;
+      quotes: "«" "»" "„" "“";
+      padding: 0 0.2rem;
+    }
+    
+    .inline-quote::before {
+      content: "«";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    .inline-quote::after {
+      content: "»";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      border-top: 1px solid #8b6f42;
+      font-size: 1rem;
+      color: #4a3118;
+      font-style: italic;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .parchment {
+        padding: 2rem 2rem;
+      }
+      
+      .parchment p {
+        font-size: 1.2rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      
+      h2 {
+        font-size: 1.8rem !important;
+      }
+      
+      .pillar-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .scheme-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      
+      .scheme-arrow {
+        transform: rotate(90deg);
+        font-size: 2rem;
+      }
+      
+      .flow-diagram {
+        flex-direction: column;
+      }
+      
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+      
+      .cycle-flow {
+        flex-direction: column;
+      }
+      
+      .cycle-arrow {
+        transform: rotate(90deg);
+      }
+      
+      .conclusion-scheme {
+        padding: 1.5rem;
+      }
+      
+      .scheme-central h3 {
+        font-size: 1.8rem;
+      }
+      
+      .final-statement p {
+        font-size: 1.3rem;
+      }
+    }
+    
+    @media (min-width: 1600px) {
+      .parchment {
+        max-width: 1600px;
+        padding: 4rem 5rem;
+      }
+      
+      .parchment p {
+        font-size: 1.5rem;
+      }
+      
+      .scheme-title-main {
+        font-size: 2.8rem;
+      }
+      
+      .scheme-central h3 {
+        font-size: 2.8rem;
+      }
+      
+      .scheme-central p {
+        font-size: 1.7rem;
+      }
+      
+      .final-statement p {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parchment">
+    
+    <!-- Top Navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="modernity.html" class="nav-button">← Політика пам'яті</a>
+      <a href="index.html" class="nav-button">На початок</a>
+    </div>
+    
+    <!-- Chapter heading -->
+    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Розділ 7</h1>
+    <h2 style="margin-top: 0; border-bottom: 3px double #5c431f; text-align: center; padding-bottom: 1rem; font-size: 2rem;">
+      7. Висновки. Історичний імператив та тріумф національної волі
+    </h2>
+    
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      
+      <!-- Main text -->
+      <p style="margin-top: 0;">Дослідження життєвого шляху та творчості Василя Стуса дозволяє стверджувати, що його постать є ключовим маркером у процесі формування української політичної нації другої половини ХХ століття. Стус репрезентує той тип національного інтелектуала, для якого література не є комфортною нішею для естетичних вправ, а виступає зброєю у боротьбі за екзистенційне право народу на існування.</p>
+      
+      <p>Росія століттями скоювала злочин, заперечуючи зв'язок між українською літературою та політикою. Нав'язуючи концепт аполітичної, суто фольклорної культури, російський імперіалізм намагався каструвати інтелектуальний потенціал українства, позбавити його амбіцій на власне державотворення та перетворити на покірну етнографічну масу. Стус зруйнував цю парадигму. Його поезія, заснована на філософії екзистенціалізму та трагічного стоїцизму, стала інтелектуальним проривом, що вивів українське слово на рівень осмислення глобальних проблем людського буття, свободи і тиранії.</p>
+      
+      <!-- MAIN SCHEME: The Triumph of National Will -->
+      <div class="conclusion-scheme">
+        <div class="scheme-title-main">Тріумф національної волі</div>
+        
+        <!-- Four pillars -->
+        <div class="pillar-grid">
+          <div class="pillar-item">
+            <div class="pillar-icon">📜</div>
+            <div class="pillar-title">Література як зброя</div>
+            <div class="pillar-desc">Поезія Стуса — інтелектуальний прорив, що вивів українське слово на рівень осмислення свободи і тиранії</div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">⚡</div>
+            <div class="pillar-title">Політичний маніфест</div>
+            <div class="pillar-desc">"Я обвинувачую" — безжальна деконструкція радянської імперії та вимога деколонізації</div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">⚖️</div>
+            <div class="pillar-title">Судова розправа</div>
+            <div class="pillar-desc">Процес 1980 року — свідчення деградації радянського правосуддя та колаборації адвокатури</div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">🕯️</div>
+            <div class="pillar-title">Тріумф пам'яті</div>
+            <div class="pillar-desc">Спроба цензури у 2020 році обернулася безпрецедентним поширенням правди</div>
+          </div>
+        </div>
+        
+        <!-- Central statement -->
+        <div class="scheme-central">
+          <h3>Василь Стус — переможець</h3>
+          <p>Не жертва репресивної машини, а переможець в історичному протистоянні</p>
+        </div>
+        
+        <!-- Flow diagram -->
+        <div style="margin: 2.5rem 0;">
+          <h4 style="text-align: center; margin-bottom: 2rem; color: #2a1708; font-size: 1.6rem;">Шлях від опору до тріумфу</h4>
+          <div class="flow-diagram">
+            <span class="flow-item">Поезія опору</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-item">Політичний маніфест</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-item">Судовий процес</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-item">Фізичне знищення</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-item">Посмертний тріумф</span>
+          </div>
+        </div>
+        
+        <!-- Comparison: Empire vs Individual -->
+        <table class="comparison-scheme-table">
+          <thead>
+            <tr>
+              <th>Імперія намагалася</th>
+              <th>Результат</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Стерти українську ідентичність (палімпсест)</td>
+              <td>Первісний текст проступив крізь цензуру та репресії</td>
+            </tr>
+            <tr>
+              <td>Знищити фізичне тіло поета</td>
+              <td>Дух і слово виявилися сильнішими за табірні мури</td>
+            </tr>
+            <tr>
+              <td>Конфіскувати та знищити рукописи ("Птах душі")</td>
+              <td>Збережені фрагменти засвідчили незламність філософії стоїцизму</td>
+            </tr>
+            <tr>
+              <td>Приховати правду через судову цензуру (2020)</td>
+              <td>Ефект Стрейзанд: 100 000 примірників і вільний доступ до архівів</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p>Протест проти тоталітаризму для Стуса не обмежувався літературною площиною. Його відкритий лист <span class="inline-quote">Я обвинувачую</span> залишається одним із найвидатніших політичних маніфестів епохи, у якому він безжально препарував сутність радянської імперії, визначивши КДБ як шовіністичну організацію, а сам СРСР — як поліційну державу, єдиним ліком від якої є неминуча деколонізація.</p>
+      
+      <p>Справа Стуса 1980 року та її ганебний юридичний супровід за участю Віктора Медведчука назавжди зафіксовані в історії як свідоцтво того, наскільки глибоко тоталітарна система розбещувала інститути захисту права, перетворюючи їх на інструменти терору. Фізичне знищення поета в карцері Кучино та вилучення його останньої збірки <span class="inline-quote">Птах душі</span> були спробою стерти його ім'я з пам'яті. Проте ця спроба зазнала тотального краху.</p>
+      
+      <!-- Legacy box -->
+      <div class="legacy-box">
+        <h3>Спадщина Василя Стуса</h3>
+        
+        <div class="scheme-row">
+          <div class="scheme-box-conclusion">
+            <h4>Для літератури</h4>
+            <p>Утвердження української літератури як повноцінного інтелектуального феномену, здатного осмислювати глобальні проблеми людського буття</p>
+          </div>
+          <div class="scheme-arrow">◆</div>
+          <div class="scheme-box-conclusion">
+            <h4>Для нації</h4>
+            <p>Формування твердого національного характеру, здатного протистояти асиміляційному тиску та імперській агресії</p>
+          </div>
+        </div>
+        
+        <div class="scheme-row">
+          <div class="scheme-box-conclusion">
+            <h4>Для політики</h4>
+            <p>Обґрунтування неминучості деколонізації СРСР та утвердження незалежної України як гаранта європейської безпеки</p>
+          </div>
+          <div class="scheme-arrow">◆</div>
+          <div class="scheme-box-conclusion">
+            <h4>Для пам'яті</h4>
+            <p>Демонстрація потужних механізмів захисту історичної пам'яті від спроб ревізіонізму та цензури</p>
+          </div>
+        </div>
+      </div>
+      
+      <p>Ми повинні пам'ятати Василя Стуса не лише як жертву репресивної машини, а передусім як переможця в цьому історичному протистоянні. Його життєвий чин стверджує безальтернативність боротьби: дух, що спирається на глибоке усвідомлення власної правоти і національної гідності, неможливо знищити ані судовими вироками, ані табірними мурами.</p>
+      
+      <!-- Final scheme: The Cycle of Resistance -->
+      <div class="cycle-box">
+        <h4>Цикл національного опору</h4>
+        
+        <div class="cycle-flow">
+          <span class="cycle-item">Усвідомлення загрози</span>
+          <span class="cycle-arrow">→</span>
+          <span class="cycle-item">Формування спротиву</span>
+          <span class="cycle-arrow">→</span>
+          <span class="cycle-item">Акт непокори</span>
+          <span class="cycle-arrow">→</span>
+          <span class="cycle-item">Репресії</span>
+          <span class="cycle-arrow">→</span>
+          <span class="cycle-triumph">ТРІУМФ ПАМ'ЯТІ</span>
+        </div>
+        
+        <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #4a3118; font-size: 1.2rem;">
+          ↻ Цикл повторюється, доки існує загроза національному буттю
+        </p>
+      </div>
+      
+      <p>Суспільний резонанс навколо книги про його справу у 2020 році довів, що посіяні ним ідеї проросли. Пам'ять про Василя Стуса є тим фундаментом, на якому тримається наша сьогоднішня здатність чинити опір імперії, адже нація, яка шанує таких героїв, володіє достатньою вітальною енергією для остаточного утвердження своєї незалежності.</p>
+      
+      <!-- Final statement -->
+      <div class="final-statement">
+        <p>"Дух, що спирається на глибоке усвідомлення власної правоти і національної гідності, неможливо знищити ані судовими вироками, ані табірними мурами."</p>
+        <div style="margin-top: 1.5rem; font-style: normal; font-size: 1.3rem;">— Історичний імператив справи Василя Стуса</div>
+      </div>
+      
+      <!-- Summary table of key conclusions -->
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th colspan="2">Ключові висновки дослідження</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Література і політика</strong></td>
+            <td>В умовах бездержавності література виконує функцію національного самозбереження та політичного утвердження</td>
+          </tr>
+          <tr>
+            <td><strong>Філософія опору</strong></td>
+            <td>Трагічний стоїцизм Стуса — унікальний синтез європейського екзистенціалізму та українського концтабірного досвіду</td>
+          </tr>
+          <tr>
+            <td><strong>Деколонізація</strong></td>
+            <td>Стус та дисиденти передбачили неминучість розпаду СРСР та утвердження незалежної України</td>
+          </tr>
+          <tr>
+            <td><strong>Пам'ять як зброя</strong></td>
+            <td>Українське суспільство сформувало ефективні механізми захисту історичної пам'яті</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    
+    <hr>
+    
+    <!-- Bottom navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="modernity.html" class="nav-button">← Політика пам'яті</a>
+      <a href="index.html" class="nav-button">Повернутися до Вступу</a>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <span>Протистояння волі та імперії</span>
+      <span>— Сторінка 7 —</span>
+      <span>Висновки</span>
+    </div>
+    
+  </div>
+</body>
+</html>

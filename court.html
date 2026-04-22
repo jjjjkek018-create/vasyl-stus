@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Судовий процес 1980 року — Василь Стус</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Enhanced responsive styles */
+    body {
+      background: #1a0a05;
+      background-image: 
+        repeating-linear-gradient(45deg, 
+          rgba(120, 20, 10, 0.2) 0px, 
+          rgba(120, 20, 10, 0.2) 3px,
+          transparent 3px, 
+          transparent 10px
+        ),
+        radial-gradient(circle at 30% 40%, #2a1008 0%, #0a0301 100%);
+      padding: 2rem 2rem;
+    }
+    
+    .parchment-blood {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      background: linear-gradient(
+        145deg,
+        #4a2a14 0%,
+        #3d2010 20%,
+        #2c1508 50%,
+        #3a1e0c 75%,
+        #4e2a12 100%
+      );
+      padding: 3.5rem 4rem;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.7),
+        0 0 0 1px #6b2a10 inset,
+        0 0 30px #1a0500 inset,
+        0 0 0 12px #1f0a03,
+        0 8px 0 0 #0a0200;
+      border-radius: 2px 40px 2px 30px;
+      position: relative;
+      border-left: 6px solid #6b1a0a;
+      border-right: 2px solid #8b2a10;
+      color: #d4c4a2;
+    }
+    
+    .parchment-blood::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 10% 15%, rgba(180, 25, 25, 0.18) 0%, transparent 35%),
+        radial-gradient(circle at 90% 30%, rgba(150, 15, 15, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 25% 70%, rgba(200, 30, 30, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 85%, rgba(160, 20, 20, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(120, 10, 10, 0.12) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+    
+    /* Content wrapper */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      z-index: 5;
+    }
+    
+    /* Clearfix for floated sections */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with right-floated image */
+    .section-first {
+      margin-bottom: 2rem;
+    }
+    
+    .section-first::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with left-floated image */
+    .section-second {
+      margin-bottom: 2rem;
+    }
+    
+    .section-second::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Photo frame styles */
+    .photo-frame {
+      background: #5c3a1a;
+      padding: 12px 12px 18px;
+      box-shadow: 0 0 0 2px #3a1508, 0 8px 20px rgba(0,0,0,0.5), inset 0 0 25px #1a0500;
+      transition: transform 0.3s ease;
+    }
+    
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 0 0 2px #3a1508, 0 12px 30px rgba(0,0,0,0.6), inset 0 0 25px #1a0500;
+    }
+    
+    .photo-right {
+      float: right;
+      width: 320px;
+      margin: 0.5rem 0 2rem 2.5rem;
+      transform: rotate(1.8deg);
+    }
+    
+    .photo-left {
+      float: left;
+      width: 300px;
+      margin: 0.5rem 2.5rem 2rem 0;
+      transform: rotate(-2.2deg);
+    }
+    
+    .photo-inner {
+      width: 100%;
+      background: #4a2a15;
+      border: 1px solid #3a1508;
+      padding-bottom: 10px;
+      text-align: center;
+      color: #c8b090;
+    }
+    
+    .photo-inner img {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      border: none;
+      box-shadow: none;
+      margin: 0;
+      filter: sepia(0.7) contrast(0.9) brightness(0.8);
+    }
+    
+    .photo-caption-main {
+      border-top: 1px solid #8b6040;
+      margin: 0 10px;
+      padding-top: 0.8rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .photo-caption-sub {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #b89878;
+      border-top: 1px dashed #7a2010;
+      padding-top: 8px;
+      line-height: 1.5;
+    }
+    
+    /* Heavy blood splatters */
+    .blood-splatter-heavy {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .splatter-1 {
+      top: 3%;
+      right: 2%;
+      width: 250px;
+      height: 150px;
+      background: radial-gradient(ellipse at 40% 50%, rgba(160, 20, 20, 0.35) 0%, rgba(120, 10, 10, 0.18) 45%, transparent 75%);
+      filter: blur(4px);
+      transform: rotate(-12deg);
+      border-radius: 50% 20% 60% 30%;
+    }
+    
+    .splatter-2 {
+      bottom: 8%;
+      left: 1%;
+      width: 300px;
+      height: 120px;
+      background: radial-gradient(ellipse at 60% 40%, rgba(180, 15, 15, 0.3) 0%, rgba(140, 20, 20, 0.15) 50%, transparent 80%);
+      filter: blur(5px);
+      transform: rotate(20deg);
+      border-radius: 30% 60% 40% 70%;
+    }
+    
+    .splatter-3 {
+      top: 45%;
+      right: 5%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at 30% 30%, rgba(200, 25, 25, 0.25) 0%, rgba(150, 15, 15, 0.1) 50%, transparent 80%);
+      filter: blur(6px);
+      border-radius: 50%;
+    }
+    
+    .splatter-4 {
+      bottom: 20%;
+      right: 15%;
+      width: 220px;
+      height: 100px;
+      background: radial-gradient(ellipse at 50% 60%, rgba(140, 10, 10, 0.28) 0%, rgba(100, 10, 10, 0.12) 55%, transparent 85%);
+      filter: blur(3px);
+      transform: rotate(-25deg);
+      border-radius: 40% 50% 30% 60%;
+    }
+    
+    /* Blood drips */
+    .blood-drip-heavy {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .drip-1 {
+      top: 8%;
+      left: 3%;
+      width: 6px;
+      height: 100px;
+      background: linear-gradient(to bottom, rgba(170, 20, 20, 0.7), rgba(130, 10, 10, 0.3), transparent);
+      filter: blur(1.5px);
+      transform: rotate(3deg);
+      border-radius: 0 0 50% 50%;
+    }
+    
+    .drip-2 {
+      top: 18%;
+      right: 6%;
+      width: 5px;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(150, 15, 15, 0.6), rgba(110, 10, 10, 0.2), transparent);
+      filter: blur(1.2px);
+      transform: rotate(-6deg);
+      border-radius: 0 0 40% 60%;
+    }
+    
+    .drip-3 {
+      bottom: 12%;
+      left: 8%;
+      width: 7px;
+      height: 70px;
+      background: linear-gradient(to bottom, rgba(160, 18, 18, 0.55), transparent);
+      filter: blur(1.8px);
+      transform: rotate(8deg);
+    }
+    
+    .drip-4 {
+      top: 35%;
+      left: 90%;
+      width: 4px;
+      height: 55px;
+      background: linear-gradient(to bottom, rgba(140, 12, 12, 0.5), transparent);
+      filter: blur(1px);
+      transform: rotate(-4deg);
+    }
+    
+    /* Torn edges */
+    .torn-edge-top-full {
+      position: absolute;
+      top: -6px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 12px,
+        rgba(35, 8, 3, 0.85) 12px,
+        rgba(35, 8, 3, 0.85) 22px,
+        transparent 22px,
+        transparent 30px,
+        rgba(45, 10, 5, 0.7) 30px,
+        rgba(45, 10, 5, 0.7) 40px,
+        transparent 40px
+      );
+      filter: blur(1px);
+      z-index: 2;
+    }
+    
+    .torn-edge-bottom-full {
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 22px;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 18px,
+        rgba(30, 8, 3, 0.8) 18px,
+        rgba(30, 8, 3, 0.8) 28px,
+        transparent 28px,
+        transparent 38px,
+        rgba(40, 12, 5, 0.65) 38px,
+        rgba(40, 12, 5, 0.65) 48px,
+        transparent 48px
+      );
+      filter: blur(1.2px);
+      z-index: 2;
+    }
+    
+    /* Typography */
+    .parchment-blood h1,
+    .parchment-blood h2,
+    .parchment-blood h3,
+    .parchment-blood h4,
+    .parchment-blood h5,
+    .parchment-blood h6 {
+      color: #e8d0b0 !important;
+      text-shadow: 3px 3px 0 #4a1205, 4px 4px 8px rgba(0,0,0,0.6) !important;
+      border-bottom-color: #7a2010 !important;
+    }
+    
+    .parchment-blood p {
+      color: #d4c0a0 !important;
+      text-shadow: 1px 1px 3px #1a0500 !important;
+      font-size: 1.4rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Table styling */
+    .parchment-blood table {
+      background: rgba(80, 20, 8, 0.3);
+      box-shadow: inset 0 0 25px #2a0a03;
+      border-color: #7a2010;
+      margin: 2.5rem 0;
+      font-size: 1.2rem;
+    }
+    
+    .parchment-blood th {
+      background: #5c1508;
+      color: #f0dcc0;
+      border-bottom: 3px solid #3a0a03;
+      text-shadow: 2px 2px 0 #1a0500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1.2rem;
+      font-size: 1.2rem;
+    }
+    
+    .parchment-blood td {
+      background: rgba(50, 15, 8, 0.5);
+      color: #e8d0b0;
+      border-color: #6b1a0a;
+      padding: 1.2rem;
+      vertical-align: top;
+    }
+    
+    /* Comparison table */
+    .comparison-blood {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 3rem 0;
+    }
+    
+    .comparison-blood th {
+      background: #4a1005;
+      padding: 1.2rem;
+      font-size: 1.3rem;
+    }
+    
+    .comparison-blood td {
+      padding: 1.2rem;
+    }
+    
+    .comparison-blood tr td:first-child {
+      font-weight: 700;
+      background: rgba(60, 15, 8, 0.6);
+    }
+    
+    /* Blood quote */
+    .blood-quote {
+      margin: 2.5rem 2rem;
+      padding: 2rem 2.5rem;
+      background: rgba(100, 20, 10, 0.15);
+      border-left: 8px solid #8b2010;
+      border-right: 2px solid #6b1508;
+      box-shadow: inset 0 0 30px rgba(60, 10, 5, 0.3), 5px 5px 0 #1a0500;
+      position: relative;
+    }
+    
+    .blood-quote::before {
+      content: "“";
+      font-size: 7rem;
+      position: absolute;
+      left: -0.3rem;
+      top: -1.5rem;
+      color: #7a2010;
+      opacity: 0.4;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .blood-quote p {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+    
+    .quote-attribution-blood {
+      margin-top: 1.2rem;
+      text-align: right;
+      color: #b89878;
+      border-top: 1px dashed #7a2010;
+      padding-top: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    /* Verdict box */
+    .verdict-box {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(145deg, rgba(120, 25, 10, 0.2), rgba(80, 15, 5, 0.25));
+      border: 4px double #8b2010;
+      box-shadow: inset 0 0 40px rgba(40, 8, 3, 0.4), 0 8px 20px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+    
+    .verdict-box h3 {
+      margin-top: 0;
+      color: #e0b898 !important;
+      font-size: 2.2rem;
+    }
+    
+    .verdict-text {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #c08060;
+      text-shadow: 3px 3px 0 #3a0802;
+      letter-spacing: 0.1em;
+      margin: 1.5rem 0;
+    }
+    
+    /* Navigation buttons */
+    .nav-button-blood {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #4a1205 !important;
+      color: #e8d0b0 !important;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border: 2px solid #7a2010 !important;
+      box-shadow: 4px 4px 0 #1a0500, inset 1px 1px 0 #a05030 !important;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    
+    .nav-button-blood:hover {
+      background: #5c1508 !important;
+      box-shadow: 3px 3px 0 #1a0500, inset 1px 1px 0 #b06040 !important;
+      transform: translate(-1px, -1px);
+    }
+    
+    /* Highlight text */
+    .highlight-blood {
+      background: rgba(140, 25, 10, 0.25);
+      padding: 0.1rem 0.4rem;
+      border-bottom: 1px solid #8b2010;
+      font-weight: 600;
+      color: #e0b898;
+    }
+    
+    /* Inline quote */
+    .inline-quote {
+      font-style: italic;
+      quotes: "«" "»" "„" "“";
+      padding: 0 0.2rem;
+    }
+    
+    .inline-quote::before {
+      content: "«";
+      font-size: 1.2em;
+      color: #c08060;
+    }
+    
+    .inline-quote::after {
+      content: "»";
+      font-size: 1.2em;
+      color: #c08060;
+    }
+    
+    /* Footer */
+    .footer-blood {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      border-top: 1px solid #7a2010;
+      font-size: 1rem;
+      color: #a08060;
+      font-style: italic;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .parchment-blood {
+        padding: 2rem 2rem;
+      }
+      
+      .photo-right,
+      .photo-left {
+        float: none;
+        width: 100%;
+        max-width: 350px;
+        margin: 2rem auto;
+        display: block;
+      }
+      
+      .parchment-blood p {
+        font-size: 1.2rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      
+      .blood-quote {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+      
+      .blood-quote p {
+        font-size: 1.3rem;
+      }
+      
+      .verdict-text {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (min-width: 1600px) {
+      .parchment-blood {
+        max-width: 1600px;
+        padding: 4rem 5rem;
+      }
+      
+      .photo-right {
+        width: 380px;
+      }
+      
+      .photo-left {
+        width: 350px;
+      }
+      
+      .parchment-blood p {
+        font-size: 1.5rem;
+      }
+      
+      .blood-quote p {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parchment-blood">
+    
+    <!-- Blood splatters -->
+    <div class="blood-splatter-heavy splatter-1"></div>
+    <div class="blood-splatter-heavy splatter-2"></div>
+    <div class="blood-splatter-heavy splatter-3"></div>
+    <div class="blood-splatter-heavy splatter-4"></div>
+    
+    <!-- Blood drips -->
+    <div class="blood-drip-heavy drip-1"></div>
+    <div class="blood-drip-heavy drip-2"></div>
+    <div class="blood-drip-heavy drip-3"></div>
+    <div class="blood-drip-heavy drip-4"></div>
+    
+    <!-- Torn edges -->
+    <div class="torn-edge-top-full"></div>
+    <div class="torn-edge-bottom-full"></div>
+    
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      
+      <!-- Top Navigation -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <a href="manifest.html" class="nav-button-blood">← Маніфест</a>
+        <a href="modernity.html" class="nav-button-blood">Політика пам'яті →</a>
+      </div>
+      
+      <!-- Chapter heading -->
+      <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Розділ 5</h1>
+      <h2 style="margin-top: 0; border-bottom: 3px double #7a2010; text-align: center; padding-bottom: 1rem; color: #e8d0b0 !important; font-size: 2rem;">
+        5. Анатомія розправи: Судовий процес 1980 року та деградація інституту захисту
+      </h2>
+      
+      <!-- First section with right-aligned photo (Courtroom) -->
+      <div class="section-first clearfix">
+        
+        <!-- Photo: Courtroom (Right) -->
+        <div class="photo-frame photo-right">
+          <div class="photo-inner">
+            <img src="court.jpg" alt="Судовий процес над Василем Стусом, Київ 1980">
+            <div class="photo-caption-main">
+              Справа №5<br>
+              <span style="font-size: 0.8rem;">Київ</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Справа №5. Фото архівів КДБ
+          </div>
+        </div>
+        
+        <!-- Text content -->
+        <p style="margin-top: 0;">Повернення Василя Стуса до Києва у серпні 1979 року після відбуття першого терміну покарання та заслання не означало примирення з системою. Знаючи, що репресивна машина пильно стежить за кожним його кроком, він одразу приєднався до Української Гельсінської групи. Цей крок був свідомим переходом межі; Стус розумів, що захист прав людини в умовах тоталітаризму є прямою антиурядовою діяльністю, за яку доведеться платити свободою або життям. У травні 1980 року його було знову заарештовано.</p>
+        
+        <p>Осінній судовий процес 1980 року увійшов в історію як класичний приклад інституційної деградації радянського правосуддя. Суд над Василем Стусом був не змагальним процесом встановлення істини, а ритуальною розправою, де суддя, прокурор, слідчий КДБ і призначений державою адвокат діяли як єдиний, узгоджений механізм ліквідації політичного опонента.</p>
+        
+        <p>Стуса звинуватили в <span class="highlight-blood">"антирадянській агітації та пропаганді"</span>, визнавши його дії такими, що полягали у виготовленні, зберіганні та розповсюдженні <span class="inline-quote">"ворожої літератури, що ганьбить радянський державний і суспільний лад"</span> з метою <span class="inline-quote">"підриву та ослаблення радянської влади"</span>. Абсурдність ситуації полягала в тому, що головним доказом <span class="inline-quote">"злочинної діяльності"</span> слугували поетичні твори Стуса. Система відкрито визнала, що література є для неї загрозою національної безпеки.</p>
+        
+      </div>
+      
+      <!-- Key quote about Medvedchuk -->
+      <div class="blood-quote">
+        <p>"другий прокурор мені у цій справі не потрібен"</p>
+        <div class="quote-attribution-blood">— Василь Стус, про свого адвоката Віктора Медведчука, 1980</div>
+      </div>
+      
+      <p>Окремого, детального аналізу потребує роль адвоката в цьому процесі. Відповідно до матеріалів архівної кримінальної справи, державним захисником Стуса був призначений молодий юрист Віктор Медведчук. На той час до політичних справ допускалася лише вузька група адвокатів, які мали відповідний дозвіл органів державної безпеки і діяли в чітко визначених межах лояльності до системи. Проте навіть у цих жорстких координатах поведінка Медведчука стала символом безпрецедентного порушення адвокатської етики та фактичної колаборації з обвинуваченням.</p>
+      
+      <!-- Comparison Table -->
+      <h3 style="text-align: center; margin: 3rem 0 2rem; color: #e0b898 !important; font-size: 2rem;">
+        ⚔ Порівняльний аналіз функцій адвокатури ⚔
+      </h3>
+      
+      <table class="comparison-blood">
+        <thead>
+          <tr>
+            <th>Принципи незалежної адвокатури</th>
+            <th>Фактичні дії В. Медведчука під час процесу 1980 року</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Презумпція невинуватості:</strong><br>Адвокат зобов'язаний відкидати обвинувачення до винесення вироку і шукати докази на користь клієнта.</td>
+            <td><strong>Згода з обвинуваченням:</strong><br>Визнав правильність кваліфікації дій Стуса слідчими органами КДБ.</td>
+          </tr>
+          <tr>
+            <td><strong>Захист інтересів клієнта:</strong><br>Позиція захисника не може суперечити позиції підсудного.</td>
+            <td><strong>Солідаризація з прокурором:</strong><br>Заявив, що інкриміновані Стусу "злочини" заслуговують на покарання.</td>
+          </tr>
+          <tr>
+            <td><strong>Повага до волі підзахисного:</strong><br>У разі відмови клієнта від послуг, адвокат повинен підтримати це клопотання.</td>
+            <td><strong>Ігнорування волі клієнта:</strong><br>Залишився у процесі попри категоричну заяву Стуса ("другий прокурор мені не потрібен").</td>
+          </tr>
+          <tr>
+            <td><strong>Інформаційна підтримка:</strong><br>Адвокат забезпечує зв'язок підзахисного з родиною та інформує про хід справи.</td>
+            <td><strong>Приховування інформації:</strong><br>Не повідомив родині поета про дату початку розгляду справи в суді.</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <!-- Second section with left-aligned photo (Perm Camp) -->
+      <div class="section-second clearfix">
+        
+        <!-- Photo: Perm Camp (Left) -->
+        <div class="photo-frame photo-left">
+          <div class="photo-inner">
+            <img src="perm.jpg" alt="Табір особливого режиму ВС-389/36 у селі Кучино, Пермська область">
+            <div class="photo-caption-main">
+              Табір ВС-389/36<br>
+              <span style="font-size: 0.75rem;">с. Кучино, Пермська обл.</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Табір особливого режиму. Місце загибелі поета 4 вересня 1985 року
+          </div>
+        </div>
+        
+        <p>Василь Стус миттєво збагнув природу цього <span class="inline-quote">"захисту"</span>. Усвідомлюючи, що присутність Медведчука лише легітимізує судовий фарс, дисидент категорично відмовився від його послуг. Він вимагав надати йому право на захист з боку представника міжнародної правозахисної організації. Проте радянський суд, керуючись власними інструкціями, відхилив це клопотання і примусово залишив Медведчука в процесі. Злочин Медведчука перед підзахисним виявився не лише в юридичній площині, але й у моральній: він навіть не повідомив родині поета про дату початку судового розгляду, позбавивши їх можливості підтримати Василя.</p>
+        
+        <p>Попередня практика цього адвоката свідчила, що випадок зі Стусом не був аномалією. У 1979 році Медведчук захищав іншого українського дисидента, Юрія Литвина, який також отримав максимальне покарання і залишив свідчення, що дії його адвоката були диктовані вказівками <span class="inline-quote">"згори"</span>. Обидва дисиденти згодом зустріли свою смерть у таборах.</p>
+        
+      </div>
+      
+      <!-- Verdict box -->
+      <div class="verdict-box">
+        <h3>ВИРОК</h3>
+        <div class="verdict-text">10 + 5</div>
+        <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">10 років таборів особливого режиму<br>+ 5 років заслання</p>
+        <p style="margin-top: 1.5rem; font-style: italic; opacity: 0.8; font-size: 1.2rem;">Табір ВС-389/36, с. Кучино, Пермська область</p>
+      </div>
+      
+      <p>Вирок суду був жорстоким: 10 років таборів особливого режиму та 5 років заслання. Василя Стуса відправили до табору ВС-389/36 у селі Кучино Пермської області. Цей заклад був розрахований на методичне фізичне та психологічне знищення політичних в'язнів: їм забороняли бачитися з родинами, обмежували листування, постійно кидали до холодного карцеру. Навіть у цих умовах Стус намагався займатися вихованням сина через листи, закликаючи його формувати характер і бути стійким.</p>
+      
+      <!-- Final quote about death -->
+      <div class="blood-quote" style="margin-top: 2.5rem;">
+        <p>Протестна воля Стуса не була зламлена. У серпні 1985 року, реагуючи на чергові знущання адміністрації табору, він оголосив сухе голодування. У ніч з 3 на 4 вересня 1985 року Василь Стус загинув у карцері.</p>
+        <div class="quote-attribution-blood">— Архівні матеріали справи</div>
+      </div>
+      
+      <p>Обставини його смерті залишаються до кінця не з'ясованими: чи це був серцевий напад, спровокований виснаженням і холодом (температура в карцері ледь сягала 15 градусів), чи пряме фізичне вбивство наглядачами. Хай там як, це була спланована ліквідація найпотужнішого інтелектуального голосу українського опору, здійснена напередодні колапсу самої імперії.</p>
+      
+      <!-- Timeline of final days -->
+      <table style="margin: 3rem 0;">
+        <thead>
+          <tr>
+            <th colspan="2">Останні дні Василя Стуса</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Серпень 1985</strong></td>
+            <td>Оголошення сухого голодування у відповідь на знущання адміністрації табору</td>
+          </tr>
+          <tr>
+            <td><strong>3 вересня 1985</strong></td>
+            <td>Перебування у холодному карцері. Температура близько 15°C</td>
+          </tr>
+          <tr>
+            <td><strong>Ніч 3-4 вересня 1985</strong></td>
+            <td>Смерть у карцері. Обставини остаточно не встановлені</td>
+          </tr>
+          <tr>
+            <td><strong>Після смерті</strong></td>
+            <td>Тіло видане родині. Поховання на Байковому кладовищі у Києві</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    
+    <hr style="border-color: #7a2010; background: repeating-linear-gradient(90deg, #7a2010, #7a2010 8px, transparent 8px, transparent 16px); margin: 2.5rem 0;">
+    
+    <!-- Bottom navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 5;">
+      <a href="manifest.html" class="nav-button-blood">← Маніфест "Я обвинувачую"</a>
+      <a href="modernity.html" class="nav-button-blood">Політика пам'яті →</a>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer-blood">
+      <span>Протистояння волі та імперії</span>
+      <span>— Сторінка 5 —</span>
+      <span>Анатомія розправи</span>
+    </div>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Філософія трагічного стоїцизму — Василь Стус</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Enhanced responsive styles */
+    body {
+      padding: 2rem 2rem;
+    }
+    
+    .parchment {
+      max-width: 1400px;
+      width: 100%;
+      padding: 3.5rem 4rem;
+    }
+    
+    /* Content wrapper */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    /* Clearfix for floated sections */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with right-floated image */
+    .section-first {
+      margin-bottom: 2rem;
+    }
+    
+    .section-first::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with left-floated image */
+    .section-second {
+      margin-bottom: 2rem;
+    }
+    
+    .section-second::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Photo frame styles */
+    .photo-frame {
+      background: #cab07a;
+      padding: 12px 12px 18px;
+      box-shadow: 0 0 0 2px #4d341a, 0 8px 15px rgba(0,0,0,0.3), inset 0 0 20px #281a0a;
+      transition: transform 0.3s ease;
+    }
+    
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 0 0 2px #4d341a, 0 12px 25px rgba(0,0,0,0.4), inset 0 0 20px #281a0a;
+    }
+    
+    .photo-right {
+      float: right;
+      width: 300px;
+      margin: 0.5rem 0 2rem 2.5rem;
+      transform: rotate(1.2deg);
+    }
+    
+    .photo-left {
+      float: left;
+      width: 280px;
+      margin: 0.5rem 2.5rem 2rem 0;
+      transform: rotate(-1.8deg);
+    }
+    
+    .photo-inner {
+      width: 100%;
+      background: #5e4e2e;
+      border: 1px solid #3d2a15;
+      padding-bottom: 10px;
+      text-align: center;
+      color: #d4c4a2;
+    }
+    
+    .photo-inner img {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      border: none;
+      box-shadow: none;
+      margin: 0;
+      filter: sepia(0.4) contrast(0.9);
+    }
+    
+    .photo-caption-main {
+      border-top: 1px solid #aa8e5e;
+      margin: 0 10px;
+      padding-top: 0.8rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .photo-caption-sub {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #2c1c0c;
+      border-top: 1px dashed #6b4e24;
+      padding-top: 8px;
+      line-height: 1.5;
+    }
+    
+    /* Text paragraphs */
+    .parchment p {
+      font-size: 1.4rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Navigation buttons */
+    .nav-button {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background: #5c431f;
+      color: #efe6c9;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border: 2px solid #8b6f42;
+      box-shadow: 3px 3px 0 #2d1d0c, inset 1px 1px 0 #b89e6a;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    
+    .nav-button:hover {
+      background: #6b4e24;
+      box-shadow: 4px 4px 0 #2d1d0c, inset 1px 1px 0 #c9a86c;
+      transform: translate(-1px, -1px);
+    }
+    
+    /* Scheme container */
+    .scheme-container {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: rgba(210, 180, 120, 0.12);
+      border: 3px double #7a5c33;
+      box-shadow: inset 0 0 30px rgba(80, 50, 20, 0.1), 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    
+    .scheme-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2a1708;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-bottom: 2px dashed #8b6f42;
+      padding-bottom: 1rem;
+    }
+    
+    .scheme-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.1fr 1fr;
+      gap: 1rem;
+      align-items: center;
+      margin: 1.5rem 0;
+    }
+    
+    .scheme-left, .scheme-right {
+      padding: 1rem;
+    }
+    
+    .scheme-center {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #5c431f;
+      text-shadow: 2px 2px 0 #b89e6a;
+    }
+    
+    .scheme-box {
+      background: rgba(245, 235, 200, 0.5);
+      border: 2px solid #6b4e24;
+      padding: 1.5rem 1.2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: inset 0 0 15px #b89e6a, 3px 3px 0 #4a3118;
+      position: relative;
+    }
+    
+    .scheme-box::before {
+      content: "❧";
+      position: absolute;
+      left: -8px;
+      top: -8px;
+      font-size: 1.5rem;
+      color: #6b4e24;
+      background: #efe2b4;
+      padding: 0 5px;
+      border-radius: 50%;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+    
+    .scheme-box h4 {
+      margin: 0 0 0.8rem 0;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #8b6f42;
+      padding-bottom: 0.5rem;
+      color: #2a1708;
+    }
+    
+    .scheme-box p {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.5;
+    }
+    
+    .arrow-down {
+      text-align: center;
+      font-size: 2rem;
+      color: #5c431f;
+      margin: 0.5rem 0;
+    }
+    
+    .concept-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    
+    .concept-badge {
+      background: #6b4e24;
+      color: #efe6c9;
+      padding: 0.6rem 1.5rem;
+      border: 2px solid #aa8e5e;
+      box-shadow: 2px 2px 0 #2d1d0c;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .central-concept {
+      background: linear-gradient(145deg, #5c431f, #3d2a12);
+      color: #f0e6d0;
+      padding: 2rem;
+      text-align: center;
+      border: 4px double #c9a86c;
+      box-shadow: 0 0 0 2px #4a3118, inset 0 0 30px #1a1005;
+      margin: 2rem 0;
+    }
+    
+    .central-concept h3 {
+      color: #f0e6d0 !important;
+      border-bottom: 2px solid #c9a86c;
+      text-shadow: 2px 2px 0 #1a1005 !important;
+      margin-top: 0;
+      font-size: 2rem;
+    }
+    
+    .central-concept p {
+      color: #e0d0b0 !important;
+      font-size: 1.3rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      margin: 2rem 0;
+      font-size: 1.15rem;
+    }
+    
+    .comparison-table th {
+      background: #5c431f;
+      font-size: 1.2rem;
+    }
+    
+    .comparison-table td:first-child {
+      font-weight: 700;
+      background: rgba(180, 140, 80, 0.2);
+    }
+    
+    /* Palimpsest explanation box */
+    .palimpsest-box {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: rgba(180, 150, 100, 0.1);
+      border: 2px solid #8b6f42;
+      box-shadow: inset 0 0 20px rgba(80, 50, 20, 0.08);
+    }
+    
+    .palimpsest-box h4 {
+      margin-top: 0;
+      text-align: center;
+      border-bottom: none;
+      font-size: 1.6rem;
+    }
+    
+    /* Inline quote */
+    .inline-quote {
+      font-style: italic;
+      quotes: "«" "»" "„" "“";
+      padding: 0 0.2rem;
+    }
+    
+    .inline-quote::before {
+      content: "«";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    .inline-quote::after {
+      content: "»";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    /* Decorative flourish */
+    .flourish {
+      text-align: center;
+      margin: 2.5rem 0 1.5rem;
+      font-size: 1.8rem;
+      color: #6b4e24;
+      letter-spacing: 0.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      border-top: 1px solid #8b6f42;
+      font-size: 1rem;
+      color: #4a3118;
+      font-style: italic;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .parchment {
+        padding: 2rem 2rem;
+      }
+      
+      .photo-right,
+      .photo-left {
+        float: none;
+        width: 100%;
+        max-width: 350px;
+        margin: 2rem auto;
+        display: block;
+      }
+      
+      .parchment p {
+        font-size: 1.2rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      
+      .scheme-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      
+      .scheme-center {
+        transform: rotate(90deg);
+        font-size: 2rem;
+      }
+    }
+    
+    @media (min-width: 1600px) {
+      .parchment {
+        max-width: 1600px;
+        padding: 4rem 5rem;
+      }
+      
+      .photo-right {
+        width: 350px;
+      }
+      
+      .photo-left {
+        width: 320px;
+      }
+      
+      .parchment p {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parchment">
+    
+    <!-- Top Navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="upbringing.html" class="nav-button">← Генеза незламності</a>
+      <a href="manifest.html" class="nav-button">Маніфест "Я обвинувачую" →</a>
+    </div>
+    
+    <!-- Chapter heading -->
+    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Розділ 3</h1>
+    <h2 style="margin-top: 0; border-bottom: 3px double #5c431f; text-align: center; padding-bottom: 1rem; font-size: 2rem;">
+      3. Філософія трагічного стоїцизму: Екзистенціалізм як метод опору
+    </h2>
+    
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      
+      <!-- First section with right-aligned photo (1986 Munich Edition) -->
+      <div class="section-first clearfix">
+        
+        <!-- Photo: 1986 Munich Edition (Right) -->
+        <div class="photo-frame photo-right">
+          <div class="photo-inner">
+            <img src="1986.jpg" alt="Обкладинка мюнхенського видання Палімпсести 1986">
+            <div class="photo-caption-main">
+              Палімпсести<br>
+              <span style="font-size: 0.8rem;">Мюнхен, 1986</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Перше окреме видання. Вийшло через рік після смерті поета
+          </div>
+        </div>
+        
+        <!-- Text content -->
+        <p style="margin-top: 0;">Художній світ Василя Стуса потребує аналізу не лише з позицій літературознавства, але й через призму суворої філософської методології. Його поезія є унікальним явищем в українській інтелектуальній історії ХХ століття, оскільки вона репрезентує глибоко вкорінену та самостійно розроблену систему екзистенціалізму та трагічного стоїцизму. Вірші Стуса позбавлені сентиментальної слабкості; це строга, герметична аналітика людського духу, який перебуває під максимальним зовнішнім тиском.</p>
+        
+        <p>Для європейського екзистенціалізму, що сформувався у 1930-1940-х роках, базовими концептами є абсурдність буття, тотальна самотність індивіда, страх, страждання та неминучість смерті. Проте найвищою цінністю визнається абсолютна свобода особистості, яка змушена протидіяти ворожому середовищу, державі та суспільству, що нав'язують їй свою волю та інтереси. Стус імплементував ці ідеї в реалії радянського концтабірного досвіду, вивівши екзистенціалізм із площини теоретичних абстракцій у площину щоденного виживання та збереження розуму.</p>
+        
+      </div>
+      
+      <!-- SCHEME: Existentialism in Stus's Philosophy -->
+      <div class="scheme-container">
+        <div class="scheme-title">
+          <span style="background: #efe2b4; padding: 0.3rem 2rem; border: 1px solid #8b6f42;">Філософська система Василя Стуса</span>
+        </div>
+        
+        <!-- Top row: European Existentialism vs Stus's Implementation -->
+        <div class="scheme-grid">
+          <div class="scheme-left">
+            <div class="scheme-box">
+              <h4>Європейський екзистенціалізм</h4>
+              <p><strong>1930–1940 рр.</strong><br>
+              • Абсурдність буття<br>
+              • Тотальна самотність<br>
+              • Страх і страждання<br>
+              • Неминучість смерті<br>
+              • Свобода як найвища цінність</p>
+            </div>
+          </div>
+          
+          <div class="scheme-center">
+            <div style="font-size: 3rem; line-height: 1;">→</div>
+            <div style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: -0.5rem;">імплементація</div>
+          </div>
+          
+          <div class="scheme-right">
+            <div class="scheme-box">
+              <h4>Стусівська адаптація</h4>
+              <p><strong>Концтабірний досвід</strong><br>
+              • Щоденне виживання<br>
+              • Збереження розуму<br>
+              • Внутрішня свобода<br>
+              • Опір системі<br>
+              • Духовна незламність</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="arrow-down">▼</div>
+        
+        <!-- Key Concepts -->
+        <div style="text-align: center; margin: 1rem 0;">
+          <span style="font-size: 1.4rem; font-weight: 600; color: #3d2a12; border-bottom: 1px solid #8b6f42; padding-bottom: 0.2rem;">Ключові концепти</span>
+        </div>
+        
+        <div class="concept-row">
+          <span class="concept-badge">Абсурд</span>
+          <span class="concept-badge">Свобода</span>
+          <span class="concept-badge">Страждання</span>
+          <span class="concept-badge">Смерть</span>
+          <span class="concept-badge">Самотність</span>
+          <span class="concept-badge">Вибір</span>
+        </div>
+        
+        <div class="arrow-down">▼</div>
+        
+        <!-- Central Concept: Tragic Stoicism -->
+        <div class="central-concept">
+          <h3 style="margin-top: 0;">ТРАГІЧНИЙ СТОЇЦИЗМ</h3>
+          <p style="margin-bottom: 0.5rem;">Усвідомлення неминучості фізичного знищення<br>при категоричній відмові визнати духовну поразку</p>
+          <div style="margin-top: 1.5rem; font-size: 1.1rem; opacity: 0.9; font-style: italic;">"Як добре те, що смерті не боюсь я..."</div>
+        </div>
+        
+        <div class="arrow-down">▼</div>
+        
+        <!-- Manifestations -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1.5rem 0;">
+          <div class="scheme-box">
+            <h4>Античний стоїцизм</h4>
+            <p>• Духовна незворушність<br>
+            • Мужність під час катастроф<br>
+            • Прийняття долі<br>
+            • Внутрішній спокій</p>
+          </div>
+          <div class="scheme-box">
+            <h4>Стусівський стоїцизм</h4>
+            <p>• Префікс "трагічний"<br>
+            • Активний опір<br>
+            • "Самособоюнаповнення"<br>
+            • Пріоритет власного розвитку</p>
+          </div>
+        </div>
+        
+        <div class="arrow-down">▼</div>
+        
+        <!-- Core Principle -->
+        <div style="
+          background: rgba(107, 78, 36, 0.15);
+          padding: 1.5rem;
+          border-left: 6px solid #6b4e24;
+          margin: 1rem 0;
+        ">
+          <p style="margin: 0; font-size: 1.25rem; text-align: center; font-style: italic;">
+            <strong>Основний принцип:</strong> Людина є відкритою структурою. 
+            Простір її можливостей обмежений лише власною волею до самовдосконалення.
+          </p>
+        </div>
+        
+        <!-- Comparison table -->
+        <table class="comparison-table" style="margin-top: 2rem;">
+          <thead>
+            <tr>
+              <th>Компонент філософії</th>
+              <th>Характеристика у творчості Стуса</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Екзистенціалізм</td>
+              <td>Життя як невпинна драма свободи. Внутрішній світ — єдиний плацдарм для боротьби.</td>
+            </tr>
+            <tr>
+              <td>Стоїцизм</td>
+              <td>Духовна незворушність і мужність. Категорична відмова від духовної поразки.</td>
+            </tr>
+            <tr>
+              <td>Трагічне</td>
+              <td>Усвідомлення неминучості знищення при збереженні внутрішньої свободи.</td>
+            </tr>
+            <tr>
+              <td>"Самособоюнаповнення"</td>
+              <td>Безперервний процес розбудови власного "Я" незалежно від агресивності реальності.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Second section with left-aligned photo (Camp Notebook) -->
+      <div class="section-second clearfix">
+        
+        <!-- Photo: Camp Notebook (Left) -->
+        <div class="photo-frame photo-left">
+          <div class="photo-inner">
+            <img src="taboroviy.jpg" alt="Таборовий зошит Василя Стуса">
+            <div class="photo-caption-main">
+              Таборовий зошит<br>
+              <span style="font-size: 0.75rem;">Фрагменти, що збереглися</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Дрібний почерк на смужках паперу. Вивезено Іреною Гаяускас
+          </div>
+        </div>
+        
+        <!-- Text content continues -->
+        <p>У його поезії життя тлумачиться як невпинна драма свободи. В умовах, коли система знищує будь-який зовнішній простір для діяльності індивіда, єдиним плацдармом для боротьби залишається внутрішній світ. Концепція Стуса ґрунтується на моральних та світоглядних засадах: людина є відкритою структурою, простір її можливостей обмежений лише її власною волею до самовдосконалення. Він розробив концепт <span class="inline-quote">самособоюнаповнення</span> — безперервного процесу розбудови власного "Я", незалежно від того, наскільки агресивною є зовнішня реальність.</p>
+        
+        <p>Основною рисою ліричного героя Стуса є стоїцизм. В античній філософії стоїки прагнули досягти духовної незворушності, зберігаючи мужність під час життєвих катастроф. Стусівський стоїцизм набуває префікса "трагічний", оскільки він усвідомлює неминучість фізичного знищення, але категорично відмовляється визнати духовну поразку. Як зазначають дослідники його творчості, ліричний герой Стуса є людиною, яка апріорі внутрішньо вільна, незважаючи на обставини та всупереч їм. У ситуації тотального фізичного нищення ця людина ігнорує ідеологічний диктат, демонструючи пріоритет власного розвитку над вимогами системи.</p>
+        
+        <p>Вершиною поетичної та філософської думки Василя Стуса стала збірка <span class="inline-quote">Палімпсести</span>, над якою він працював у 1971-1977 роках, і яка вийшла окремим виданням у Мюнхені лише в 1986 році. Назва цієї збірки має колосальне символічне навантаження. Палімпсест в античності та середньовіччі — це пергамент, на якому первісний текст був стертий, щоб звільнити місце для нового напису, проте з часом старий текст неминуче проступав крізь нові нашарування і ставав придатним для прочитання.</p>
+        
+      </div>
+      
+      <!-- Palimpsest explanation box -->
+      <div class="palimpsest-box">
+        <h4>ПАЛІМПСЕСТ — УНІВЕРСАЛЬНА МОДЕЛЬ ІСТОРИЧНОЇ ПАМ'ЯТІ</h4>
+        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 250px;">
+            <p style="margin-bottom: 0.8rem; font-size: 1.2rem;"><strong>Первісний текст:</strong> Українська ідентичність, мова, культура, історична пам'ять.</p>
+            <p style="margin-bottom: 0.8rem; font-size: 1.2rem;"><strong>Спроба стерти:</strong> Російська імперська політика, цензура, репресії, асиміляція.</p>
+            <p style="margin-bottom: 0; font-size: 1.2rem;"><strong>Неминуче проступання:</strong> Національне відродження, творчість Стуса, деколонізація.</p>
+          </div>
+          <div style="
+            text-align: center;
+            font-size: 4rem;
+            color: #5c431f;
+            opacity: 0.4;
+          ">⟳</div>
+        </div>
+      </div>
+      
+      <p>Для Стуса палімпсест став універсальною моделлю історичної пам'яті української нації. Російська імперія століттями намагалася стерти первісний текст української ідентичності, накладаючи поверх нього свої наративи, заборони та ідеологеми. Однак знищити цей текст остаточно виявилося неможливим; він продовжував проступати крізь цензуру, репресії та асиміляцію. У цій збірці Стус досяг найвищого рівня культури мислення, глибинного проникнення у світовідношення та досконалості мистецької форми, стверджуючи безсмертність мистецького слова як форми національного опору.</p>
+      
+      <p>Важливим елементом його світогляду була медитативна лірика, де звучить мотив Бога та пошуків духовної опори. У вірші <span class="inline-quote">Господи, гніву пречистого...</span>, написаному у 1972 році, поет звертається до Всевишнього з проханням допомогти вистояти у тяжких фізичних та душевних випробуваннях. Це не молитва про порятунок тіла чи уникнення кари; це суворий екзистенційний запит на збереження сили духу, неповторності власної долі та здатності подолати страх перед смертю. Поет декларував своє кредо: <span class="inline-quote">Як добре те, що смерті не боюсь я...</span>. Цей стан душі, коли людину вже ніщо не страшить, надав творчості Стуса філософської довершеності.</p>
+      
+      <p>Надмір екзистенційного переживання відбувався на такій межі самоспалення, що вимагав нових форм художнього вираження. В останні роки життя Стус часто відмовлявся від традиційного римування, вважаючи його "дитячими забавками", і переходив до верлібру (вільного вірша) та білих віршів, що підкреслювало інтелектуальну строгість і зосередженість його текстів.</p>
+      
+      <!-- Decorative flourish -->
+      <div class="flourish">❧ ❧ ❧</div>
+      
+      <p>Трагізм його філософського шляху підкреслюється втратою його останньої таборової збірки <span class="inline-quote">Птах душі</span>. Цей рукопис, який містив близько 300 оригінальних віршів та перекладів, був вилучений адміністрацією концтабору і його доля досі залишається невідомою. Знищення цього рукопису є безпрецедентним актом інтелектуального терору. Система розуміла: фізична смерть автора не означає перемоги, якщо його думка продовжує жити. Тому метою було тотальне анігілювання не лише тіла, але й духу. Ті невеликі фрагменти, що збереглися завдяки мужності дисидентів (зокрема тексти <span class="inline-quote">З таборового зошита</span>, які були написані дрібним почерком на смужках технічного паперу і таємно вивезені Іреною Гаяускас), засвідчують, що філософія стоїцизму Василя Стуса витримала випробування абсолютною ізоляцією.</p>
+      
+    </div>
+    
+    <hr>
+    
+    <!-- Bottom navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="upbringing.html" class="nav-button">← Генеза незламності</a>
+      <a href="manifest.html" class="nav-button">Маніфест "Я обвинувачую" →</a>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <span>Протистояння волі та імперії</span>
+      <span>— Сторінка 3 —</span>
+      <span>Філософія трагічного стоїцизму</span>
+    </div>
+    
+  </div>
+</body>
+</html>

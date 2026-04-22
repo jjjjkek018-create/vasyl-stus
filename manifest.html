@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маніфест "Я обвинувачую" — Василь Стус</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Enhanced responsive styles */
+    body {
+      padding: 2rem 2rem;
+    }
+    
+    .parchment {
+      max-width: 1400px;
+      width: 100%;
+      padding: 3.5rem 4rem;
+    }
+    
+    /* Content wrapper */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    /* Clearfix for floated sections */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with right-floated image */
+    .section-first {
+      margin-bottom: 2rem;
+    }
+    
+    .section-first::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Section with left-floated image */
+    .section-second {
+      margin-bottom: 2rem;
+    }
+    
+    .section-second::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Photo frame styles */
+    .photo-frame {
+      background: #cab07a;
+      padding: 12px 12px 18px;
+      box-shadow: 0 0 0 2px #4d341a, 0 8px 15px rgba(0,0,0,0.3), inset 0 0 20px #281a0a;
+      transition: transform 0.3s ease;
+    }
+    
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 0 0 2px #4d341a, 0 12px 25px rgba(0,0,0,0.4), inset 0 0 20px #281a0a;
+    }
+    
+    .photo-right {
+      float: right;
+      width: 300px;
+      margin: 0.5rem 0 2rem 2.5rem;
+      transform: rotate(1.5deg);
+    }
+    
+    .photo-left {
+      float: left;
+      width: 280px;
+      margin: 0.5rem 2.5rem 2rem 0;
+      transform: rotate(-2deg);
+    }
+    
+    .photo-inner {
+      width: 100%;
+      background: #5e4e2e;
+      border: 1px solid #3d2a15;
+      padding-bottom: 10px;
+      text-align: center;
+      color: #d4c4a2;
+    }
+    
+    .photo-inner img {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      border: none;
+      box-shadow: none;
+      margin: 0;
+      filter: sepia(0.5) contrast(0.9);
+    }
+    
+    .photo-caption-main {
+      border-top: 1px solid #aa8e5e;
+      margin: 0 10px;
+      padding-top: 0.8rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .photo-caption-sub {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #2c1c0c;
+      border-top: 1px dashed #6b4e24;
+      padding-top: 8px;
+      line-height: 1.5;
+    }
+    
+    /* Text paragraphs */
+    .parchment p {
+      font-size: 1.4rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Navigation buttons */
+    .nav-button {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background: #5c431f;
+      color: #efe6c9;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border: 2px solid #8b6f42;
+      box-shadow: 3px 3px 0 #2d1d0c, inset 1px 1px 0 #b89e6a;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    
+    .nav-button:hover {
+      background: #6b4e24;
+      box-shadow: 4px 4px 0 #2d1d0c, inset 1px 1px 0 #c9a86c;
+      transform: translate(-1px, -1px);
+    }
+    
+    /* Manifest quote styling */
+    .manifest-quote {
+      margin: 2.5rem 2rem;
+      padding: 2rem 2.5rem;
+      background: rgba(210, 180, 120, 0.15);
+      border: 2px solid #7a5c33;
+      box-shadow: 
+        inset 0 0 30px rgba(80, 50, 20, 0.15),
+        5px 5px 0 #4a3118;
+      position: relative;
+      font-style: normal;
+    }
+    
+    .manifest-quote::before {
+      content: "“";
+      font-size: 7rem;
+      position: absolute;
+      left: -0.5rem;
+      top: -1.5rem;
+      color: #5c431f;
+      opacity: 0.3;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .manifest-quote::after {
+      content: "”";
+      font-size: 7rem;
+      position: absolute;
+      right: -0.5rem;
+      bottom: -2.5rem;
+      color: #5c431f;
+      opacity: 0.3;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .manifest-quote p {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      font-weight: 500;
+      text-align: justify;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .quote-attribution {
+      margin-top: 1.2rem;
+      text-align: right;
+      font-style: italic;
+      color: #4a3118;
+      border-top: 1px dashed #8b6f42;
+      padding-top: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    /* Indictment box */
+    .indictment-box {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(145deg, rgba(200, 170, 120, 0.12), rgba(160, 130, 80, 0.08));
+      border: 4px double #6b4e24;
+      box-shadow: inset 0 0 40px rgba(60, 40, 15, 0.1), 0 8px 15px rgba(0,0,0,0.2);
+    }
+    
+    .indictment-box h3 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      border-bottom: 2px solid #7a5c33;
+      padding-bottom: 1rem;
+    }
+    
+    .indictment-item {
+      display: flex;
+      margin-bottom: 1.8rem;
+      align-items: flex-start;
+    }
+    
+    .indictment-icon {
+      font-size: 2.2rem;
+      min-width: 60px;
+      text-align: center;
+      color: #5c431f;
+      opacity: 0.7;
+    }
+    
+    .indictment-text {
+      flex: 1;
+    }
+    
+    .indictment-text strong {
+      font-size: 1.35rem;
+      color: #2a1708;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    
+    .indictment-text p {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+    
+    /* Historical context box */
+    .historical-context {
+      margin: 2.5rem 0;
+      padding: 1.5rem 2rem;
+      background: rgba(139, 111, 66, 0.1);
+      border-left: 8px solid #6b4e24;
+      font-style: italic;
+      font-size: 1.25rem;
+    }
+    
+    /* Geopolitical vision box */
+    .geopolitical-box {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: rgba(139, 111, 66, 0.08);
+      border: 2px solid #7a5c33;
+      text-align: center;
+    }
+    
+    .geopolitical-box h4 {
+      margin-top: 0;
+      border-bottom: none;
+      font-size: 1.6rem;
+    }
+    
+    .geopolitical-box p {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    /* Highlight text */
+    .highlight {
+      background: rgba(180, 150, 90, 0.2);
+      padding: 0.1rem 0.4rem;
+      border-bottom: 1px solid #8b6f42;
+      font-weight: 600;
+    }
+    
+    /* Inline quote */
+    .inline-quote {
+      font-style: italic;
+      quotes: "«" "»" "„" "“";
+      padding: 0 0.2rem;
+    }
+    
+    .inline-quote::before {
+      content: "«";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    .inline-quote::after {
+      content: "»";
+      font-size: 1.2em;
+      color: #5c431f;
+    }
+    
+    /* Section break */
+    .section-break {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      font-size: 1.5rem;
+      color: #6b4e24;
+      letter-spacing: 0.5rem;
+    }
+    
+    /* Summary table */
+    .summary-table {
+      margin: 2.5rem 0;
+      font-size: 1.2rem;
+    }
+    
+    .summary-table th {
+      font-size: 1.3rem;
+      padding: 1.2rem;
+    }
+    
+    .summary-table td {
+      padding: 1.2rem;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      border-top: 1px solid #8b6f42;
+      font-size: 1rem;
+      color: #4a3118;
+      font-style: italic;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .parchment {
+        padding: 2rem 2rem;
+      }
+      
+      .photo-right,
+      .photo-left {
+        float: none;
+        width: 100%;
+        max-width: 350px;
+        margin: 2rem auto;
+        display: block;
+      }
+      
+      .parchment p {
+        font-size: 1.2rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      
+      .manifest-quote {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+      
+      .manifest-quote p {
+        font-size: 1.3rem;
+      }
+      
+      .indictment-box {
+        padding: 1.5rem;
+      }
+    }
+    
+    @media (min-width: 1600px) {
+      .parchment {
+        max-width: 1600px;
+        padding: 4rem 5rem;
+      }
+      
+      .photo-right {
+        width: 350px;
+      }
+      
+      .photo-left {
+        width: 320px;
+      }
+      
+      .parchment p {
+        font-size: 1.5rem;
+      }
+      
+      .manifest-quote p {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parchment">
+    
+    <!-- Top Navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="stoicism.html" class="nav-button">← Філософія стоїцизму</a>
+      <a href="court.html" class="nav-button">Судовий процес 1980 →</a>
+    </div>
+    
+    <!-- Chapter heading -->
+    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Розділ 4</h1>
+    <h2 style="margin-top: 0; border-bottom: 3px double #5c431f; text-align: center; padding-bottom: 1rem; font-size: 2rem;">
+      4. Маніфест політичної суб'єктності: Аналіз відкритого листа "Я обвинувачую"
+    </h2>
+    
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      
+      <!-- First section with right-aligned photo (Accusation Letter) -->
+      <div class="section-first clearfix">
+        
+        <!-- Photo: Accusation Letter Manuscript (Right) -->
+        <div class="photo-frame photo-right">
+          <div class="photo-inner">
+            <img src="accuse.jpg" alt="Фрагмент рукопису листа Я обвинувачую">
+            <div class="photo-caption-main">
+              Відкритий лист<br>
+              <span style="font-size: 0.8rem;">"Я обвинувачую"</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Рукопис, написаний після операції на виразці у мордовському таборі, 1975
+          </div>
+        </div>
+        
+        <!-- Text content -->
+        <p style="margin-top: 0;">Література є фундаментом національного самоусвідомлення, але в умовах активного терору вона вимагає прямої політичної артикуляції. Василь Стус розумів, що боротьба лише в площині поетичних метафор залишає простір для інтерпретацій. Тоталітарна система живилася страхом і мовчанням; отже, найпотужнішим ударом по ній мала стати публічна, юридично і політично точна деконструкція її злочинів.</p>
+        
+        <p>Цей намір був реалізований у документі надзвичайної інтелектуальної та політичної ваги — відкритому листі 1975 року, відомому під назвою <span class="inline-quote">Я обвинувачую</span>. Цей текст, написаний у нелюдських умовах табірного ув'язнення, вийшов далеко за межі індивідуальної правозахисної скарги. За своєю стилістикою, ідеологічною насиченістю та безкомпромісністю він є звинувачувальним актом усьому російсько-радянському імперіалізму, документом, у якому ув'язнений поет перебрав на себе роль прокурора в історичному трибуналі.</p>
+        
+      </div>
+      
+      <!-- Historical context box -->
+      <div class="historical-context">
+        <strong>Історичний контекст:</strong> Восени 1975 року, відбуваючи покарання у мордовському таборі, Стус ледь не загинув унаслідок прориву виразки шлунка. Лише після тривалих зволікань його було прооперовано. Саме в цей період максимального фізичного виснаження він формулює найжорсткіші оцінки системи. Контраст між фізичним станом автора та його інтелектуальною міццю вражає.
+      </div>
+      
+      <!-- MAIN MANIFEST QUOTE -->
+      <div class="manifest-quote">
+        <p><span class="highlight">"Я обвинувачую КДБ</span> як організацію відверто шовіністичну й антиукраїнську тому, що вона зробила мій народ і без'язиким і безголосим".</p>
+        <div class="quote-attribution">— Василь Стус, "Я обвинувачую", 1975</div>
+      </div>
+      
+      <p>У цьому реченні Стус здійснює концептуальний демонтаж радянської пропаганди. Застосування терміна <span class="inline-quote">шовіністична</span> до карального органу <span class="inline-quote">інтернаціональної</span> держави знищувало базовий міф СРСР. Стус чітко констатував: репресії не мають класового характеру; вони є інструментом російського великодержавного шовінізму, метою якого є етноцид. Позбавлення народу мови і голосу — це свідома політика денаціоналізації. Стус переводить питання з площини <span class="inline-quote">порушення соціалістичної законності</span> в площину національно-визвольної боротьби проти окупаційного апарату.</p>
+      
+      <!-- Indictment box -->
+      <div class="indictment-box">
+        <h3>Деконструкція радянської системи у листі</h3>
+        
+        <div class="indictment-item">
+          <div class="indictment-icon">❶</div>
+          <div class="indictment-text">
+            <strong>Заперечення "класового характеру" репресій</strong>
+            <p>Переслідування мають не соціальну, а національну природу. Це інструмент великодержавного шовінізму.</p>
+          </div>
+        </div>
+        
+        <div class="indictment-item">
+          <div class="indictment-icon">❷</div>
+          <div class="indictment-text">
+            <strong>Етноцид як мета</strong>
+            <p>Позбавлення народу мови і голосу — свідома політика денаціоналізації, спрямована на знищення української ідентичності.</p>
+          </div>
+        </div>
+        
+        <div class="indictment-item">
+          <div class="indictment-icon">❸</div>
+          <div class="indictment-text">
+            <strong>КДБ — шовіністична організація</strong>
+            <p>Визначення карального органу як антиукраїнського руйнувало міф про "інтернаціоналізм" радянської держави.</p>
+          </div>
+        </div>
+        
+        <div class="indictment-item">
+          <div class="indictment-icon">❹</div>
+          <div class="indictment-text">
+            <strong>Перехід до національно-визвольної парадигми</strong>
+            <p>Питання переводиться з площини юридичних порушень у площину боротьби проти окупаційного режиму.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Second section with left-aligned photo (Mordovian Camp) -->
+      <div class="section-second clearfix">
+        
+        <!-- Photo: Mordovian Camp (Left) -->
+        <div class="photo-frame photo-left">
+          <div class="photo-inner">
+            <img src="camp.jpg" alt="Мордовські табори Дубравлаг">
+            <div class="photo-caption-main">
+              Мордовські табори<br>
+              <span style="font-size: 0.75rem;">Дубравлаг, 1970-ті</span>
+            </div>
+          </div>
+          <div class="photo-caption-sub">
+            Місце ув'язнення та написання листа-маніфесту
+          </div>
+        </div>
+        
+        <!-- Second major quote -->
+        <div class="manifest-quote" style="margin-top: 0; margin-right: 0; margin-left: 0;">
+          <p>"Це суди над людською думкою, над самим процесом мислення, суди над гуманізмом, над проявами синівської любові до свого народу".</p>
+          <div class="quote-attribution">— Василь Стус, про хвилю арештів 1972–1973 рр.</div>
+        </div>
+        
+        <p>Аналізуючи хвилю арештів 1972-1973 років в Україні, Стус дає їм вичерпну оцінку. Він доводить, що система карає не за антидержавні дії, а за природну здатність індивіда до рефлексії та за почуття національної гідності. Злочином у Радянському Союзі, за визначенням Стуса, визнається наявність свідомості як такої. Генерація молодої української інтелігенції була репресована виключно за те, що вона намагалася зупинити процес духовної деградації нації.</p>
+        
+      </div>
+      
+      <div class="section-break">❧ ❧ ❧</div>
+      
+      <p>Лист <span class="inline-quote">Я обвинувачую</span> має також глибокий історіософський і геополітичний вимір. Стус та його побратими-дисиденти дійшли фундаментального висновку: Радянський Союз перетворився на військову і поліційну державу, що керується далекосяжними імперськими цілями. Виходячи з цього, будь-який опір цьому режиму не може обмежуватися вимогами лібералізації. Єдиним ефективним рішенням є деколонізація СРСР. Незалежна Україна розглядалася ними як ключовий фактор стабільності, здатний стати надійним захистом Європи від подальшої комуністичної та російської експансії.</p>
+      
+      <!-- Geopolitical vision box -->
+      <div class="geopolitical-box">
+        <h4>Геополітичне передбачення</h4>
+        <p style="margin-bottom: 1rem;"><strong>Радянський Союз = військова і поліційна держава</strong></p>
+        <p style="margin-bottom: 1rem; font-size: 2rem;">↓</p>
+        <p style="margin-bottom: 1rem;"><strong>Неминучість деколонізації СРСР</strong></p>
+        <p style="margin-bottom: 1rem; font-size: 2rem;">↓</p>
+        <p style="margin-bottom: 0;"><strong>Незалежна Україна — захист Європи від російської експансії</strong></p>
+      </div>
+      
+      <!-- Final manifesto statement -->
+      <div class="manifest-quote" style="margin-bottom: 1rem;">
+        <p>У цьому маніфесті Василь Стус категорично відмовився від ролі жертви. Він відкинув нав'язане системою тавро "кримінального злочинця" чи "хулігана", ствердивши своє право на політичну суб'єктність.</p>
+        <div class="quote-attribution">— Аналіз політичної позиції Стуса</div>
+      </div>
+      
+      <p><span class="inline-quote">Я обвинувачую</span> — це текст, у якому воля окремої людини виявилася сильнішою за весь апарат державного примусу, продемонструвавши, що імперія може знищити фізичне тіло, але вона безсила перед чітко артикульованою ідеєю.</p>
+      
+      <!-- Summary table -->
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>Елемент маніфесту</th>
+            <th>Зміст та значення</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Адресат обвинувачення</strong></td>
+            <td>Комітет державної безпеки (КДБ) як організація відверто шовіністична й антиукраїнська</td>
+          </tr>
+          <tr>
+            <td><strong>Суть злочину</strong></td>
+            <td>Позбавлення народу мови і голосу — політика денаціоналізації та етноциду</td>
+          </tr>
+          <tr>
+            <td><strong>Характер репресій</strong></td>
+            <td>Суди над людською думкою, процесом мислення, гуманізмом, любов'ю до народу</td>
+          </tr>
+          <tr>
+            <td><strong>Політична позиція</strong></td>
+            <td>Відмова від ролі жертви, утвердження політичної суб'єктності</td>
+          </tr>
+          <tr>
+            <td><strong>Історичний вирок</strong></td>
+            <td>Неминучість деколонізації СРСР та утвердження незалежної України</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    
+    <hr>
+    
+    <!-- Bottom navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="stoicism.html" class="nav-button">← Філософія стоїцизму</a>
+      <a href="court.html" class="nav-button">Судовий процес 1980 →</a>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <span>Протистояння волі та імперії</span>
+      <span>— Сторінка 4 —</span>
+      <span>Маніфест "Я обвинувачую"</span>
+    </div>
+    
+  </div>
+</body>
+</html>

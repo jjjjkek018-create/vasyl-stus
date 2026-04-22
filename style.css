@@ -1,0 +1,352 @@
+/* style.css — Parchment Book / Old Manuscript Style */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #2b1b0e;
+  background-image: 
+    repeating-linear-gradient(45deg, 
+      rgba(80, 50, 20, 0.15) 0px, 
+      rgba(80, 50, 20, 0.15) 2px,
+      transparent 2px, 
+      transparent 8px
+    ),
+    radial-gradient(circle at 30% 40%, #3d2a15 0%, #1a1005 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+}
+
+/* Main parchment container */
+.parchment {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  background: #f3e9c0;
+  background: linear-gradient(
+    145deg,
+    #e8dba8 0%,
+    #f5ecc7 15%,
+    #efe2b4 50%,
+    #e6d7a2 85%,
+    #d9c88e 100%
+  );
+  padding: 3.5rem 3rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px #8b6f42 inset,
+    0 0 20px #1a0f00 inset,
+    0 0 0 12px #3d2a15,
+    0 8px 0 0 #1a1005;
+  border-radius: 2px 40px 2px 30px;
+  position: relative;
+  transition: all 0.2s;
+  border-left: 6px solid #6b4c24;
+  border-right: 2px solid #8b6f42;
+}
+
+/* Old stain effects */
+.parchment::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(80, 40, 10, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 40% 85%, rgba(120, 70, 30, 0.08) 0%, transparent 35%),
+    radial-gradient(circle at 10% 90%, rgba(160, 100, 40, 0.1) 0%, transparent 45%);
+  border-radius: inherit;
+}
+
+/* Frayed edge effect — bottom */
+.parchment::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  right: 20px;
+  height: 16px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 6px,
+    rgba(60, 40, 15, 0.3) 6px,
+    rgba(60, 40, 15, 0.3) 12px
+  );
+  filter: blur(1.2px);
+  border-radius: 0 0 30px 30px;
+  pointer-events: none;
+}
+
+/* Typography base */
+.parchment {
+  color: #2c1c0c;
+  font-size: 1.35rem;
+  line-height: 1.65;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 rgba(230, 210, 160, 0.5);
+  word-spacing: 0.05em;
+}
+
+/* Headings — classic, distressed */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  font-weight: 700;
+  color: #2a1708;
+  text-shadow: 
+    2px 2px 0 #c9b27c,
+    3px 3px 4px rgba(0,0,0,0.1);
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid #8b6f42;
+  padding-bottom: 0.35rem;
+  margin-top: 2.2rem;
+  margin-bottom: 1.2rem;
+  font-style: normal;
+  position: relative;
+}
+
+h1 {
+  font-size: 3.2rem;
+  text-align: center;
+  border-bottom: 3px double #5c431f;
+  padding-bottom: 0.8rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
+
+h2 {
+  font-size: 2.2rem;
+  border-bottom: 2px dashed #7a5c33;
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Drop cap / first letter of paragraphs */
+p {
+  margin-bottom: 1.3rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Classic first letter */
+p:first-of-type::first-letter {
+  font-size: 4.5em;
+  float: left;
+  padding: 0.15rem 0.3rem 0 0;
+  line-height: 0.75;
+  font-weight: 700;
+  color: #3a1f07;
+  text-shadow: 2px 2px 0 #b89e6a;
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+}
+
+/* Tables — old ledgers */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  background: rgba(210, 180, 120, 0.15);
+  box-shadow: inset 0 0 15px #4d3116;
+  border: 1px solid #73582c;
+}
+
+th, td {
+  border: 1px solid #6b4e24;
+  padding: 0.75rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #6b4e24;
+  color: #efe6c9;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+  text-shadow: 1px 1px 0 #1e1408;
+  border-bottom: 3px solid #3d2a12;
+}
+
+td {
+  background: rgba(245, 235, 200, 0.4);
+  color: #1f1308;
+}
+
+/* Blockquotes — hand‑written annotation feel */
+blockquote {
+  margin: 1.8rem 2rem;
+  padding: 0.8rem 1.8rem;
+  font-style: italic;
+  background: rgba(160, 120, 60, 0.08);
+  border-left: 8px solid #7a5c33;
+  border-right: 2px solid #aa8e5e;
+  box-shadow: inset 0 0 20px rgba(60, 35, 10, 0.1);
+  color: #1f1308;
+  position: relative;
+}
+
+blockquote::before {
+  content: "“";
+  font-size: 5rem;
+  position: absolute;
+  left: -0.2rem;
+  top: -0.8rem;
+  color: #5e421e;
+  opacity: 0.25;
+  font-family: serif;
+}
+
+/* Links — aged, like references */
+a {
+  color: #4a2c10;
+  text-decoration: underline wavy #8b6f42;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.2px;
+  transition: all 0.1s;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #1f0e00;
+  text-decoration: underline double #4a2c10;
+  background: rgba(180, 140, 80, 0.15);
+}
+
+/* Horizontal rules — ornate breaks */
+hr {
+  border: none;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #6b4e24,
+    #6b4e24 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  margin: 2.5rem 0;
+  position: relative;
+}
+
+hr::after {
+  content: "☙";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+  background: #efe2b4;
+  padding: 0 15px;
+  color: #4a3115;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 0 #b89e6a;
+}
+
+/* Lists — old manuscript style */
+ul, ol {
+  margin: 1.2rem 0 1.5rem 2rem;
+  list-style-position: outside;
+}
+
+li {
+  margin-bottom: 0.3rem;
+  padding-left: 0.5rem;
+}
+
+ul li::marker {
+  content: "❧ ";
+  color: #5c3e19;
+  font-size: 1.2rem;
+}
+
+ol {
+  list-style-type: lower-roman;
+}
+
+ol li::marker {
+  font-weight: bold;
+  color: #3b280f;
+}
+
+/* Code / pre — faded ink on parchment */
+pre, code {
+  font-family: 'Courier New', monospace;
+  background: rgba(100, 70, 30, 0.1);
+  border: 1px solid #8f7a50;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  color: #1e1308;
+  font-size: 0.9em;
+  box-shadow: inset 0 1px 4px #3a2a14;
+}
+
+/* Small print / footnotes */
+small, .footnote {
+  font-size: 0.9rem;
+  color: #4a3118;
+  font-style: italic;
+}
+
+/* Distressed edge for images — old daguerreotype feel */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 6px solid #cab07a;
+  box-shadow: 
+    0 0 0 2px #4d341a,
+    0 10px 20px rgba(0,0,0,0.3),
+    inset 0 0 20px #281a0a;
+  filter: sepia(0.45) contrast(0.9) brightness(0.95);
+  margin: 1.5rem 0;
+}
+
+/* Additional shabby elements: stains, worn corners */
+.parchment {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark corner wear */
+.parchment .corner-wear {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 0 0, #5e411e, transparent 70%);
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+  .parchment {
+    padding: 2rem 1.5rem;
+    box-shadow: 
+      0 10px 20px rgba(0,0,0,0.4),
+      0 0 0 1px #7a5c33 inset,
+      0 0 0 6px #2d1d0c;
+  }
+  h1 {
+    font-size: 2.3rem;
+  }
+}
